@@ -1,0 +1,11 @@
+<div id="cities">
+   <h1>Cities</h1>
+   <div>
+      <div ng-repeat="weather in weather">
+          <h2>How's the weather in {{ weather.name }}?</h2>
+          <p>Current Conditions: {{ weather.weather[0].description | TitleCase }}</p>
+          <p>Current Temperature (F): {{ weather.main.temp | fahrenheit }} Degrees</p>
+      </div>
+       
+   </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <h2>Simple image slider</h2>
+    
+  <div class="slider" ng-repeat="img in images">
+      <img ng-src= "{{ img[0].display_sizes[0].uri }}" />
+
+    <button class="prev">&#60;</button> 
+    <button class="next">&#62;</button>
+ </div>
+    
+</div>
