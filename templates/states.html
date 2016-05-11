@@ -1,22 +1,27 @@
 <div class="wrapper">
     <h2>Simple image slider</h2>
     
-  <div class="slider" ng-repeat="img in images track by $index">
-      <img ng-src= "{{ img.display_sizes[0].uri }}" />
+    <div class="slider" ng-repeat="img in images track by $index">
+        <img ng-src= "{{ img.display_sizes[0].uri }}" />
 
 <!--
     <button class="prev">&#60;</button> 
     <button class="next">&#62;</button>
--->
- </div>
+--> 
+        
+    </div>
     
-<div class="slider">
-	<div class="slide" ng-repeat="image in images" ng-show="image.visible">
-		<img ng-src="img/{{image.src}}"/>
-	</div>
-	<div class="arrows">
-		<a href="#" ng-click="prev()"><img src="img/left-arrow.png"/></a> <a href="#" ng-click="next()"><img src="img/right-arrow.png"/></a>
-	</div>
-</div>
+    <div class="slider">
+        <div class="slide" ng-repeat="image in images" ng-show="image.visible">
+            <img ng-src="img/{{image.src}}"/>
+        </div>
+        
+        <div class="arrows">
+            <a href="#" ng-click="prev()">
+                <img src="img/left-arrow.png"/></a> 
+            <a href="#" ng-click="next()">
+                <img src="img/right-arrow.png"/></a>
+        </div>    
+    </div>
     
 </div>
