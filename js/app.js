@@ -12,7 +12,7 @@ var app = angular.module('Destinations',[
     'DestinationsAppFactory',
     'DestinationsAppControllers',
     'DestinationsAppFilters',
-    //'DestinationsAppDirectives',
+    'DestinationsAppDirectives',
     ]); //<= END ANGAPP DEPENDANCIES
 
 
