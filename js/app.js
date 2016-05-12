@@ -23,17 +23,17 @@ app.config(['$routeProvider', function ($routeProvider) {
          controller: 'HomeController',
          templateUrl: 'templates/home.html'
       })
-      .when('/states', {
+      .when('/:stateId', {
          controller: 'StatesController',
          templateUrl: 'templates/states.html'
       })
       .when('/cities', {
          controller: 'CitiesController',
          templateUrl: 'templates/cities.html'
-      })
-      .otherwise({
-         redirectTo: '/home'
       });
+      //.otherwise({
+      //    redirectTo: '/home'
+      //});
     console.log('Router Hot');
 }]); //<= END ANGULAR ROUTER
 

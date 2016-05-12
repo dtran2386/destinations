@@ -6,7 +6,12 @@ body {
     width: 60px;
 }
 
-mapContainer {
+.mapContainer {
     height: 600px;
     width: 600px;
+}
+.state:hover {
+    cursor: crosshair;
+    stroke-width: 2;
+    stroke: blue;   
 }
