@@ -16,14 +16,14 @@ module.exports = (function() {
     
     
     /////// => BEGIN STATE VIEW CONTROLLER
-    appControllers.controller('StatesController', ['$scope', 'DestService', function ($scope, DestService) {
+    appControllers.controller('StatesController', ['$scope', '$routeParams', 'DestService', function ($scope, $routeParams, DestService) {
         // Code to test View / Router
         console.log('State View Working');
         
         // Code to Test Factory Link
         console.log(DestService.silento());
-        
-
+        DestService.setState($routeParams);
+        console.log($routeParams.stateId);
         $scope.images = DestService.getImages();
     }]); //<= END OF STATE VIEW CONTROLLER
     

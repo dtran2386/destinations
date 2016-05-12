@@ -48,6 +48,9 @@ module.exports = (function() {
         
     /////// => BEGIN RETURN FOR FACTORY FUNCTIONS / CLOSURES
         return {
+            setState: function(input) {
+                console.log(input.stateId + ' is ready to search');
+            },
             getWeather: function () {
                 return weather;
             }, //<= END OF WEATHER RETURN
