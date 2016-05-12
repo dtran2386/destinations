@@ -30,10 +30,10 @@ app.config(['$routeProvider', function ($routeProvider) {
       .when('/cities', {
          controller: 'CitiesController',
          templateUrl: 'templates/cities.html'
-      })
-      .otherwise({
-         redirectTo: '/home'
       });
+      //.otherwise({
+      //    redirectTo: '/home'
+      //});
     console.log('Router Hot');
 }]); //<= END ANGULAR ROUTER
 
