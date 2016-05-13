@@ -30,10 +30,10 @@ module.exports = (function() {
         
         
         
-    /////// => BEGIN IMAGE AJAX PROMISE    
+    /*////// => BEGIN IMAGE AJAX PROMISE    
         $http({
             method: 'GET',
-            url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=miami',
+            url: 'https://api.gettyimages.com/v3/search/images/creative?fields=display_set&phrase=miami',
             headers: {
                 'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
             }
@@ -43,18 +43,25 @@ module.exports = (function() {
                 }
                 //console.log(response);
         }); //<= END OF IMG PROMISE CHAIN
-        
+        */
         
         
     /////// => BEGIN RETURN FOR FACTORY FUNCTIONS / CLOSURES
         return {
-            setState: function(input) {
-                console.log(input.stateId + ' is ready to search');
-            },
             getWeather: function () {
                 return weather;
             }, //<= END OF WEATHER RETURN
-            getImages: function () {
+            getImages: function (input) {
+                $http({
+                method: 'GET',
+                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase='+ input,
+                headers: {
+                    'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
+                    }
+                }).then(function (response) {
+                    angular.copy(response.data.images, images);
+                });
+                console.log(input + " = input");
                 return images;
             }, //<= END OF IMG RETURN
             /// Function for Calling in Controller to verify Link-up

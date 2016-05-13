@@ -22,9 +22,8 @@ module.exports = (function() {
         
         // Code to Test Factory Link
         console.log(DestService.silento());
-        DestService.setState($routeParams);
-        console.log($routeParams.stateId);
-        $scope.images = DestService.getImages();
+        $scope.images = DestService.getImages($routeParams.stateId);
+        console.log($scope.images);
     }]); //<= END OF STATE VIEW CONTROLLER
     
     
