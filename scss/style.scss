@@ -1,15 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+
 body {
-    font: 'Open Sans', sans-serif;
+    //font: 'Open Sans', sans-serif;
+    background-image: url('../resource/cork.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 10% 0 10%;
 }
 #icon {
     height: 40px;
     width: 60px;
 }
 
-.mapContainer {
-    height: 600px;
+.polaroid {
+    background-color: antiquewhite;
+    border: 2px solid blue;
+    padding: 5% 5% 15% 5%;
+}
+
+.frame {
+    background-color: darkslategrey;
+    height: 690px;
     width: 600px;
 }
+
+.display {
+    background-color: antiquewhite;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+    color: black;
+    
+    border: 2px solid red;
+} 
+
+/* CSS RULES BELOW FOR SVG MAPS ONLY */
 .states {
     fill: #B1BBBA;
     stroke: #7D8F8D;
