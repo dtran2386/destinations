@@ -2,7 +2,7 @@
     <h1>Cities</h1>
     <div>
         <div ng-repeat="weather in weather">
-            <h2>How's the weather in {{ weather.name }}?</h2>
+            <h2>How's the weather in {{ display }}?</h2>
             
             <p>Current Conditions: {{ weather.weather[0].description | TitleCase }}
                 <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" id="icon"/>

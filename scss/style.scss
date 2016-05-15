@@ -10,8 +10,62 @@ body {
     height: 600px;
     width: 600px;
 }
-.state:hover {
-    cursor: crosshair;
+.states {
+    fill: #B1BBBA;
+    stroke: #7D8F8D;
     stroke-width: 2;
-    stroke: blue;   
 }
+
+.states:hover {
+    cursor: pointer;
+    stroke-width: 2;
+    stroke: none;
+    fill: yellow;
+}
+
+.state {
+    fill: green;
+    opacity: .7;
+    stroke: #7D8F8D;
+    stroke-width: 2;
+}
+
+.city {
+    fill: red;
+    stroke: black;
+    stroke-width: 1;
+}
+.city:hover {
+    cursor: pointer;
+    fill: yellow;
+    stroke: black;
+    stroke-width: 1;
+}
+.urban {
+    fill: darkgray;
+    opacity: .5;
+}
+.airport {
+    fill: black;
+}
+.Interstate {
+    stroke: black;
+    stroke-width: 2;
+}
+
+.Federal {
+    stroke: black;
+    stroke-width: 1;
+}
+
+.State {
+    stroke: black;
+    stroke-width: .5;
+}
+
+.Other {
+    stroke: black;
+    stroke-width: .5;
+}
+
+
