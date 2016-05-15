@@ -27,7 +27,7 @@ app.config(['$routeProvider', function ($routeProvider) {
          controller: 'StatesController',
          templateUrl: 'templates/states.html'
       })
-      .when('/:cityId', {
+      .when('/:stateId/:cityId', {
          controller: 'CitiesController',
          templateUrl: 'templates/cities.html'
       });

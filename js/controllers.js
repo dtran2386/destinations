@@ -26,20 +26,29 @@ module.exports = (function() {
         // Code to Test Factory Link
         //console.log(DestService.silento());
         
-        // Get Images for Select State
-        $scope.images = DestService.getImages($routeParams.stateId);
+        // Code to Set Specific URL extension for API Calls
+        DestService.prepImageURL($routeParams.stateId);
+        
+        // Get Images from API for Select State
+        $scope.images = DestService.getImages();
         //console.log($scope.images);
         
+        $scope.display = 'Select a City';
+        $scope.return = function() {
+            $scope.display = DestService.returnDisplay();
+        };
     }]); //<= END OF STATE VIEW CONTROLLER
     
     
     
     /////// => BEGIN CITY VIEW CONTROLLER
-    appControllers.controller('CitiesController', ['$scope', 'DestService', function ($scope, DestService) {
+    appControllers.controller('CitiesController', ['$scope', '$routeParams', 'DestService', function ($scope, $routeParams, DestService) {
         // Code to test View / Router
         console.log('City View Working');
         // Code to Test Factory Link
         //console.log(DestService.silento());
+        DestService.prepImageURL($routeParams.cityId);
+        console.log($routeParams.cityId);
         
         $scope.weather = DestService.getWeather();
         $scope.images = DestService.getImages();

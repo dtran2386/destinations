@@ -11,6 +11,7 @@ module.exports = (function() {
         let images = [];
         let display = '';
         let state = '';
+        let xURL = '';
         
     /////// => BEGIN WEATHER AJAX PROMISE
         $http({
@@ -50,21 +51,30 @@ module.exports = (function() {
         
     /////// => BEGIN RETURN FOR FACTORY FUNCTIONS / CLOSURES
         return {
+            prepImageURL: function(input) {
+                if (input === state) {
+                    xURL = 'State of '+ input;
+                } else {
+                    xURL = input + ', ' + state;
+                }
+                console.log(xURL);
+            },
             getWeather: function() {
                 return weather;
             }, //<= END OF WEATHER RETURN
             
-            getImages: function(input) {
+            getImages: function() {
+                
                 $http({
                 method: 'GET',
-                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase=State of'+ input,
+                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase='+ xURL,
                 headers: {
                     'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
                     }
                 }).then(function (response) {
                     angular.copy(response.data.images, images);
                 });
-                console.log(input + " = input");
+                //console.log(images);
                 return images;
             }, //<= END OF IMAGE RETURN
             
