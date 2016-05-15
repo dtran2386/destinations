@@ -5,12 +5,16 @@ module.exports = (function() {
     /////// => BEGIN HOME VIEW CONTROLLER
     appControllers.controller('HomeController', ['$scope', 'DestService', function ($scope, DestService) {
         // Code to test View / Router
-        console.log('Home View Working');
-        
+        //console.log('Home View Working');
         // Code to Test Factory Link
-        console.log(DestService.silento());
+        //console.log(DestService.silento());
         
-
+        // Code to Display Map Section ID from Cursor Hover
+        $scope.display = 'Select a State';
+        $scope.return = function() {
+            $scope.display = DestService.returnDisplay();
+        };
+        
     }]); //<= END OF HOME VIEW CONTROLLER
     
     
@@ -18,12 +22,14 @@ module.exports = (function() {
     /////// => BEGIN STATE VIEW CONTROLLER
     appControllers.controller('StatesController', ['$scope', '$routeParams', 'DestService', function ($scope, $routeParams, DestService) {
         // Code to test View / Router
-        console.log('State View Working');
-        
+        //console.log('State View Working');
         // Code to Test Factory Link
-        console.log(DestService.silento());
+        //console.log(DestService.silento());
+        
+        // Get Images for Select State
         $scope.images = DestService.getImages($routeParams.stateId);
-        console.log($scope.images);
+        //console.log($scope.images);
+        
     }]); //<= END OF STATE VIEW CONTROLLER
     
     
@@ -32,10 +38,8 @@ module.exports = (function() {
     appControllers.controller('CitiesController', ['$scope', 'DestService', function ($scope, DestService) {
         // Code to test View / Router
         console.log('City View Working');
-        
         // Code to Test Factory Link
-        console.log(DestService.silento());
-        
+        //console.log(DestService.silento());
         
         $scope.weather = DestService.getWeather();
         $scope.images = DestService.getImages();

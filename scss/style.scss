@@ -10,8 +10,47 @@ body {
     height: 600px;
     width: 600px;
 }
-.state:hover {
-    cursor: crosshair;
+
+.states {
+    fill: #B1BBBA;
+    stroke: #7D8F8D;
+    stroke-width: 2;
+}
+.states:hover {
+    cursor: pointer;
+    stroke-width: 2;
+    stroke: blue;
+    fill: yellow;
+}
+.state {
+    fill: green;
+    opacity: .2;
+    stroke: #7D8F8D;
+    stroke-width: 2;
+}
+.city {
+    fill: red;
+    stroke: red;
+    stroke-width: 10;
+}
+.Interstate {
+    stroke: green;
+    stroke-width: 1;
+}
+.Federal {
+    stroke: black;
+    stroke-width: 1;
+}
+.State {
+    stroke: black;
+    stroke-width: .5;
+}
+.Other {
+    stroke: black;
+    stroke-width: .5;
+}
+.city:hover {
+    cursor: pointer;
     stroke-width: 2;
     stroke: blue;
     fill: yellow;

@@ -9,6 +9,8 @@ module.exports = (function() {
         // LOCAL STORE VARS
         let weather = [];
         let images = [];
+        let display = '';
+        let state = '';
         
     /////// => BEGIN WEATHER AJAX PROMISE
         $http({
@@ -48,13 +50,14 @@ module.exports = (function() {
         
     /////// => BEGIN RETURN FOR FACTORY FUNCTIONS / CLOSURES
         return {
-            getWeather: function () {
+            getWeather: function() {
                 return weather;
             }, //<= END OF WEATHER RETURN
-            getImages: function (input) {
+            
+            getImages: function(input) {
                 $http({
                 method: 'GET',
-                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase='+ input,
+                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase=State of'+ input,
                 headers: {
                     'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
                     }
@@ -63,11 +66,28 @@ module.exports = (function() {
                 });
                 console.log(input + " = input");
                 return images;
-            }, //<= END OF IMG RETURN
+            }, //<= END OF IMAGE RETURN
+            
+            setState: function(input) {
+                state = input;
+                console.log(state);
+            }, //<= END OF STATE SET
+            
+            setDisplay: function (input) {
+                display = input;
+            }, //<= END OF DISPLAY SET
+            
+            
+            returnDisplay: function() {
+                return display;
+            }, //<= END OF DISPLAY RETURN
+            
+            
             /// Function for Calling in Controller to verify Link-up
-            silento: function () {
+            silento: function() {
                 return 'Watch me WHIP! now watch me NAE NAE!';
-            },
+            }
+            
         }; //<= END OF FACTORY CLOSURES
         
     }); //<= END OF FACTORY
