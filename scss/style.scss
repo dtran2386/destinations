@@ -1,43 +1,68 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     //font: 'Open Sans', sans-serif;
     background-image: url('../resource/cork.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0 10% 0 10%;
 }
-#icon {
-    height: 40px;
-    width: 60px;
+.pin {
+    position: relative;
+    left: 230px;
+    top: 45px;
+    background-image: url('../resource/pin.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    
 }
-
 .polaroid {
-    background-color: antiquewhite;
-    border: 2px solid blue;
-    padding: 5% 5% 15% 5%;
+    background-color: ghostwhite;
+    height: 620px;
+    width: 550px;
+    padding-top: 1%;
+    
+    box-shadow: 3px 3px 14px 2px rgba(0,0,0,0.75);
+    
+    //border: 2px solid blue;
+    //padding: 2% 2% 2% 2%;
 }
 
 .frame {
-    background-color: darkslategrey;
-    height: 690px;
-    width: 600px;
+    background-color: lightskyblue;
+    box-shadow: 0px 0px 44px 2px rgba(173,173,173,0.75) inset;
+    margin: 5% 5% 0% 5%;
+        
+    //border: 2px solid yellow;
 }
 
 .display {
-    background-color: antiquewhite;
+    //background-color: floralwhite;
     text-align: center;
     font-family: 'Permanent Marker', cursive;
-    font-size: 40px;
+    font-size: 36px;
+    margin: 1%;
     color: black;
     
-    border: 2px solid red;
+    //border: 2px solid red;
 } 
 
 /* CSS RULES BELOW FOR SVG MAPS ONLY */
+.ocean {
+    fill: lightblue;
+    stroke: none;
+}
+.countries{
+    fill: green;
+    stroke: none;
+}
 .states {
-    fill: #B1BBBA;
+    fill: lightgreen;
     stroke: #7D8F8D;
+    stroke-dasharray: 5, 5;
     stroke-width: 2;
 }
 
@@ -45,7 +70,7 @@ body {
     cursor: pointer;
     stroke-width: 2;
     stroke: none;
-    fill: yellow;
+    fill: green;
 }
 
 .state {
