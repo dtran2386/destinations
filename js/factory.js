@@ -9,6 +9,7 @@ module.exports = (function() {
         // LOCAL STORE VARS
         let weather = [];
         let images = [];
+        let weatherHistory = [];
         
     /////// => BEGIN WEATHER AJAX PROMISE
         $http({
@@ -33,7 +34,7 @@ module.exports = (function() {
     /////// => BEGIN IMAGE AJAX PROMISE    
         $http({
             method: 'GET',
-            url: 'https://api.gettyimages.com/v3/search/images/creative?phrase=miami',
+            url: 'https://api.gettyimages.com/v3/search/images/creative?fields=display_set&phrase=miami',
             headers: {
                 'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
             }
@@ -44,6 +45,7 @@ module.exports = (function() {
                 //console.log(response);
         }); //<= END OF IMG PROMISE CHAIN
         
+                
         
         
     /////// => BEGIN RETURN FOR FACTORY FUNCTIONS / CLOSURES
@@ -57,6 +59,18 @@ module.exports = (function() {
             getImages: function () {
                 return images;
             }, //<= END OF IMG RETURN
+            getWeatherHistory: function () {
+                $http({
+                    method: 'GET',
+                    url: 'http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=efa548e958834d0daf6173645160505&q=48.85,2.35&cc=no&date=2010-04-23&format=json',
+                }).then(function (response) {
+                    for(let i = 0; i < response.data.data.weather.length; i++) {
+                        weatherHistory.push(response.data.data.weather);
+                        }
+                        console.log(response);
+                }); //<= END OF HISTORICAL WEATHER PROMISE CHAIN
+                return weatherHistory;
+            },
             /// Function for Calling in Controller to verify Link-up
             silento: function () {
                 return 'Watch me WHIP! now watch me NAE NAE!';
