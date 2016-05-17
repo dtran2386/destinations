@@ -1,58 +1,80 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
     //font: 'Open Sans', sans-serif;
     background-image: url('../resource/cork.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    //margin: auto;
+    //padding: auto;
 }
-.pin {
-    position: relative;
-    left: 230px;
-    top: 45px;
-    background-image: url('../resource/pin.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 60px;
+
+div {
+    margin: 0;
+    padding: 0;
+}
+.wrapper1 {
+    margin: auto;
+    border: 3px solid pink;
+    color: blue;
+    width: 550;
     
 }
+
 .polaroid {
+    display: flex;
+    align-items: center;
     background-color: ghostwhite;
-    height: 620px;
-    width: 550px;
-    padding-top: 1%;
-    
     box-shadow: 3px 3px 14px 2px rgba(0,0,0,0.75);
+    height: 550px;
+    width: 550px;
+    margin: auto;
     
     //border: 2px solid blue;
-    //padding: 2% 2% 2% 2%;
 }
 
 .frame {
-    background-color: lightskyblue;
-    box-shadow: 0px 0px 44px 2px rgba(173,173,173,0.75) inset;
-    margin: 5% 5% 0% 5%;
-        
-    //border: 2px solid yellow;
+    background-image: url('../resource/texture.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 44px 2px rgba(101,101,101,0.75) inset;
+    
+    height: 90%;
+    width: 90%;
+    
+    margin: auto;
+    border: 1px solid #656565;
 }
 
 .display {
-    //background-color: floralwhite;
-    text-align: center;
+    background-color: ghostwhite;
     font-family: 'Permanent Marker', cursive;
-    font-size: 36px;
-    margin: 1%;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 25px;
     color: black;
+    width: 550px;
+    margin: auto;
     
     //border: 2px solid red;
-} 
+    box-shadow: 3px 3px 14px 2px rgba(0,0,0,0.75);
+}
+
+.pin {
+    position: relative;
+    top: -645px;
+    background-image: url('../resource/pin.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50px; 
+    margin-left: 46.5%;
+}
+
 
 /* CSS RULES BELOW FOR SVG MAPS ONLY */
 .ocean {
-    fill: lightblue;
+    fill: #01053E;
     stroke: none;
 }
 .countries{
@@ -95,8 +117,9 @@ body {
     fill: darkgray;
     opacity: .5;
 }
-.airport {
+.Airport {
     fill: black;
+    stroke: red;
 }
 .Interstate {
     stroke: black;
@@ -116,6 +139,13 @@ body {
 .Other {
     stroke: black;
     stroke-width: .5;
+}
+.Reservoir{}
+
+.River{}
+
+.clip-ocean {
+    clip-path: url("#svg-clip");
 }
 
 
