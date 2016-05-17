@@ -59,18 +59,23 @@ module.exports = (function() {
             getImages: function () {
                 return images;
             }, //<= END OF IMG RETURN
+            
+            
             getWeatherHistory: function () {
-                $http({
+                return $http({
                     method: 'GET',
-                    url: 'http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key=efa548e958834d0daf6173645160505&q=48.85,2.35&cc=no&date=2010-04-23&format=json',
+                    url: 'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=efa548e958834d0daf6173645160505&q=Denver&format=json&num_of_days=7',
                 }).then(function (response) {
-                    for(let i = 0; i < response.data.data.weather.length; i++) {
-                        weatherHistory.push(response.data.data.weather);
-                        }
-                        console.log(response);
+                    weatherHistory.push(response.data.data)
+                    console.log(response.data);
+                    
+                    return response.data.data;
                 }); //<= END OF HISTORICAL WEATHER PROMISE CHAIN
-                return weatherHistory;
+//                return weatherHistory;
             },
+            
+            
+            
             /// Function for Calling in Controller to verify Link-up
             silento: function () {
                 return 'Watch me WHIP! now watch me NAE NAE!';
