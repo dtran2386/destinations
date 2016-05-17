@@ -8,7 +8,6 @@ require('./directives');
 ////// => BEGIN ANGUALR APP
 var app = angular.module('Destinations',[
     'ngRoute',
-    'ngAnimate',
     'DestinationsAppFactory',
     'DestinationsAppControllers',
     'DestinationsAppFilters',
