@@ -1,5 +1,5 @@
 body {
-    font: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 #icon {
     height: 40px;
@@ -68,4 +68,44 @@ body {
     stroke-width: .5;
 }
 
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    height: 50%;
+    margin: auto;
+}
+div.item {
+    height: 600px;
+}
 
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+}
+}

@@ -13,6 +13,7 @@ module.exports = (function() {
         let display = '';
         let state = '';
         let xURL = '';
+        let weatherHistory = [];
         
     /////// => BEGIN WEATHER AJAX PROMISE
         $http({
@@ -82,7 +83,19 @@ module.exports = (function() {
             returnDisplay: function() {
                 return display;
             }, //<= END OF DISPLAY RETURN
-            
+        
+            getWeatherHistory: function () {
+                 return $http({
+                     method: 'GET',
+                     url: 'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=efa548e958834d0daf6173645160505&q=Denver&format=json&num_of_days=7',
+                 }).then(function (response) {
+                     weatherHistory.push(response.data.data)
+                     console.log(response.data);
+                     
+                     return response.data.data;
+                 }); //<= END OF HISTORICAL WEATHER PROMISE CHAIN
+ //                return weatherHistory;
+            },
             
             /// TEST Function for Calling in Controller to verify Link-up
             silento: function() {
