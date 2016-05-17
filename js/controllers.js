@@ -75,7 +75,7 @@ module.exports = (function() {
         // console.log($scope.weather);
         
         DestService.getWeatherHistory().then(function (history) {
- //            console.log(history.ClimateAverages[0].month);
+            // console.log(history.ClimateAverages[0].month);
              var maxTemp = [];
              var minTemp = [];
              for (var i = 0; i < history.ClimateAverages[0].month.length; i++) {

@@ -73,7 +73,7 @@ div {
 }
 
 
-/* CSS RULES BELOW FOR SVG MAPS ONLY */
+// CSS RULES BELOW FOR SVG MAPS ONLY
 .ocean {
     fill: #01053E;
     stroke: none;
@@ -144,11 +144,9 @@ div {
 .Reservoir{}
 
 .River{}
+//<= END SVG MAP RULES 
 
-.clip-ocean {
-    clip-path: url("#svg-clip");
-}
-
+//=> CSS RULES BELOW FOR IMAGE CAROUSEL
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     width: 100%;
@@ -159,7 +157,6 @@ div.item {
     height: 600px;
 }
 
-/* CSS RULES BELOW FOR IMAGE CAROUSEL */
 .carousel-fade {
     .carousel-inner {
         .item {
