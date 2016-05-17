@@ -8,7 +8,7 @@ module.exports = (function() {
     appDirectives.directive('svgWorld', ['$compile', function ($compile) {
         return {
             restrict: 'A',
-            templateUrl: 'resource/home.svg',
+            templateUrl: 'resource/world2.svg',
             link: function (scope, element) {
                 let statesArr = element[0].querySelectorAll('.states');
                 angular.forEach(statesArr, function(state) {

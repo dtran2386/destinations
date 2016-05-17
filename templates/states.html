@@ -1,13 +1,14 @@
-<div class="wrapper">
-    <div class="mapContainer">
-        <h2>{{ display }}</h2>
-        <div svg-state></div>
+<div class="stateview">
+    <div class="polaroid">
+        <div class="frame" svg-state></div>
     </div>
-    <h2>Simple image slider</h2>
+    <h1 class="display">{{ display }}</h1>
     
+    <div class="pin"></div>
+    
+    <h2>Simple image slider</h2>
     <div class="slider" ng-repeat="img in images track by $index">
         <img ng-src= "{{ img.display_sizes[0].uri }}" />
         <p> {{ img.title }} </p>        
-    </div>
-    
+    </div> 
 </div>

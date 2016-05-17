@@ -1,18 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+
 body {
-    font-family: 'Open Sans', sans-serif;
-}
-#icon {
-    height: 40px;
-    width: 60px;
+    display: block;
+    //font-family: 'Open Sans', sans-serif;
+    background-image: url('../resource/cork.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    //margin: auto;
+    //padding: auto;
 }
 
-.mapContainer {
-    height: 600px;
-    width: 600px;
+div {
+    margin: 0;
+    padding: 0;
+
+}
+.wrapper1 {
+    margin: auto;
+    border: 3px solid pink;
+    color: blue;
+    width: 550;
+    
+}
+
+.polaroid {
+    display: flex;
+    align-items: center;
+    background-color: ghostwhite;
+    box-shadow: 3px 3px 14px 2px rgba(0,0,0,0.75);
+    height: 550px;
+    width: 550px;
+    margin: auto;
+    
+    //border: 2px solid blue;
+}
+
+.frame {
+    background-image: url('../resource/texture.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 44px 2px rgba(101,101,101,0.75) inset;
+    
+    height: 90%;
+    width: 90%;
+    
+    margin: auto;
+    border: 1px solid #656565;
+}
+
+.display {
+    background-color: ghostwhite;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 25px;
+    color: black;
+    width: 550px;
+    margin: auto;
+    
+    //border: 2px solid red;
+    box-shadow: 3px 3px 14px 2px rgba(0,0,0,0.75);
+}
+
+.pin {
+    position: relative;
+    top: -645px;
+    background-image: url('../resource/pin.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50px; 
+    margin-left: 46.5%;
+}
+
+
+/* CSS RULES BELOW FOR SVG MAPS ONLY */
+.ocean {
+    fill: #01053E;
+    stroke: none;
+}
+.countries{
+    fill: green;
+    stroke: none;
 }
 .states {
-    fill: #B1BBBA;
+    fill: lightgreen;
     stroke: #7D8F8D;
+    stroke-dasharray: 5, 5;
     stroke-width: 2;
 }
 
@@ -20,7 +93,7 @@ body {
     cursor: pointer;
     stroke-width: 2;
     stroke: none;
-    fill: yellow;
+    fill: green;
 }
 
 .state {
@@ -45,8 +118,9 @@ body {
     fill: darkgray;
     opacity: .5;
 }
-.airport {
+.Airport {
     fill: black;
+    stroke: red;
 }
 .Interstate {
     stroke: black;
@@ -67,6 +141,13 @@ body {
     stroke: black;
     stroke-width: .5;
 }
+.Reservoir{}
+
+.River{}
+
+.clip-ocean {
+    clip-path: url("#svg-clip");
+}
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -78,6 +159,7 @@ div.item {
     height: 600px;
 }
 
+/* CSS RULES BELOW FOR IMAGE CAROUSEL */
 .carousel-fade {
     .carousel-inner {
         .item {
@@ -107,5 +189,5 @@ div.item {
 
     .carousel-control {
         z-index: 2;
-}
+    }
 }

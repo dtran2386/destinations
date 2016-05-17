@@ -14,7 +14,7 @@ module.exports = (function() {
         $scope.display = 'Select a State';
         // Code to Get Display Value from Factory - Cursor Hover - and Update Display
         $scope.return = function() {
-            $scope.display = DestService.returnDisplay();
+            $scope.display = 'Hello ' + DestService.returnDisplay() + '!!!';
         };
         // console.log($scope.display);
         
@@ -34,7 +34,7 @@ module.exports = (function() {
         $scope.display = 'Select a City';
         // Code to Get Display Value from Factory - Cursor Hover - and Update Display
         $scope.return = function() {
-            $scope.display = DestService.returnDisplay();
+            $scope.display = 'Hello ' + DestService.returnDisplay() + '!!!';
         };
         // console.log($scope.display);
         
