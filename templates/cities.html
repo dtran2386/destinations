@@ -21,7 +21,7 @@
 <h2>In Need Of A Hotel?</h2>
 <div ng-repeat="event in events track by $index">
     <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}"><h3>{{ event.name }}</h3></a>
-    <p>{{ event.location.address }}</p>
+    <p>{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}&nbsp;&nbsp;</p>
 </div>
 
 

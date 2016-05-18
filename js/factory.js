@@ -54,7 +54,7 @@ module.exports = (function() {
             getEvents: function() {
                 $http({
                 method: 'GET',
-                url: 'https://api.foursquare.com/v2/venues/search?near=' + xURL + '&query=hotel&v=20150214&m=foursquare&client_secret=TRQU20MD3SYHGBJIVJPWXYPUGFDP0N2HKCVQNH3D2T0BBTXR&client_id=ODHLMSE0VVFCN0425B4KTOUGSSNJRNGDCY3O1SDYTHA1Y0HA&limit=10',
+                url: 'https://api.foursquare.com/v2/venues/search?near=' + xURL + '&query=hotel&v=20150214&m=foursquare&client_secret=TRQU20MD3SYHGBJIVJPWXYPUGFDP0N2HKCVQNH3D2T0BBTXR&client_id=ODHLMSE0VVFCN0425B4KTOUGSSNJRNGDCY3O1SDYTHA1Y0HA&limit=7',
                 }).then(function (response) {
                     
 //                    console.log(response);
