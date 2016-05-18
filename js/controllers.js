@@ -44,7 +44,7 @@ module.exports = (function() {
         
         // Get Images from API for Select State
         $scope.images = DestService.getImages();
-        //console.log($scope.images);
+        console.log($scope.images);
         
     }]); //<= END OF STATE VIEW CONTROLLER
     
@@ -68,7 +68,7 @@ module.exports = (function() {
         
         // Code to Get Weather Array from Factory
         $scope.images = DestService.getImages();
-        // console.log($scope.images);
+        //console.log($scope.images);
         
         // Code to Get Weather Array from Factory
         $scope.weather = DestService.getWeather();
@@ -117,5 +117,20 @@ module.exports = (function() {
          });
 
     }]); //<= END OF CITY VIEW CONTROLLER
-
+    
+    appControllers.controller('TestController', ['$scope', 'DestService', function ($scope, DestService) {
+        $scope.images = DestService.getImages();
+        console.log($scope.images);
+        $scope.myInterval = 4000;
+        $scope.slides = [
+            { image: 'http://lorempixel.com/400/200/'
+            },{
+                image: 'http://lorempixel.com/400/200/food'
+            },{
+                image: 'http://lorempixel.com/400/200/sports'
+            },{
+                image: 'http://lorempixel.com/400/200/people'
+            }];
+    }]);
+    
 }()); //<= END OF MODULE - SET OFF IFFE

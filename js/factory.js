@@ -57,7 +57,7 @@ module.exports = (function() {
             getImages: function() {
                 $http({
                 method: 'GET',
-                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase='+ xURL,
+                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase=' + xURL,
                 headers: {
                     'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
                     }
