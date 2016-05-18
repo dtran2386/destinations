@@ -14,6 +14,7 @@ module.exports = (function() {
         let state = '';
         let xURL = '';
         let weatherHistory = [];
+        let events = [];
         
     /////// => BEGIN WEATHER AJAX PROMISE
         $http({
@@ -47,6 +48,23 @@ module.exports = (function() {
                 }
                 console.log(xURL);
             }, // <= END PREP IMAGE FUNCTION
+            
+            //<= BEGIN EVENT PROMISE
+            getEvents: function() {
+                $http({
+                method: 'GET',
+                url: 'https://api.foursquare.com/v2/venues/search?near=' + xURL + '&query=hotel&v=20150214&m=foursquare&client_secret=TRQU20MD3SYHGBJIVJPWXYPUGFDP0N2HKCVQNH3D2T0BBTXR&client_id=ODHLMSE0VVFCN0425B4KTOUGSSNJRNGDCY3O1SDYTHA1Y0HA&limit=7',
+                }).then(function (response) {
+//                    console.log(response);
+                    for(var i = 0; i < response.data.response.venues.length; i++) {
+                        events.push(response.data.response.venues[i]);
+                        response.data.response.venues[i].linkname = response.data.response.venues[i].name + ', ' + response.data.response.venues[i].location.city + ', ' + response.data.response.venues[i].location.state;
+                    }
+                    console.log(events);
+//                    angular.copy(response.data.response, events);
+                });
+                return events;
+            }, //<= END OF EVENT RETURN
             
             // Function to return weather array contents to controller.
             getWeather: function() {
