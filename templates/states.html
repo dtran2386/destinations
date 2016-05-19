@@ -6,21 +6,18 @@
 <img src="../resource/pin.png" class="pin sF">
 
 <div class="content">
-    <div class="leftFrame">
+    <div class="split50Frame">
         <div class="polaroid">
             <div class="mapFrame" svg-state></div>
             <h2 class="display"> {{ display }} </h2>
         </div>
     </div>    
 
-    <div class="rightFrame">
-        <div class="scrap">
-            <img src="../resource/paper.png" class="paper"/>
-            
-            <h1 class="stateTitle textFloat">{{ state }}</h1>
-        </div>
+    <div class="split50Frame">
+        <img src="../resource/paper.png" class="paper"/>
+        <h1 class="stateTitle textFloat">{{ state }}</h1>
     </div>  
-    
+
     <div class="collage">
         <img src="../resource/polaroid-collage.png" class="overlay">
         <img ng-src="{{images[1].display_sizes[0].uri}}" class="svg-clip pano">
