@@ -91,11 +91,11 @@ ul {
     left: 0;
     top: -20px;
 }
-.paper {
+.stateScrap {
     position: absolute;
-    width: 650px;
-    height: 350px;
-    right: 25px;
+    width: 115%;
+    height: 400px;
+    right: -10px;
     top: 0px;   
 }
 .cityScrap {
@@ -141,10 +141,10 @@ ul {
 }
 .stateTitle {
     position: relative;
-    text-align: right;
+    text-align: center;
     z-index: 3;
     top: 100px;
-    right: 110px;
+    right: 30px;
     -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     -ms-transform: rotate(-10deg);
@@ -229,14 +229,14 @@ highs {
     -moz-transform: rotate(-3deg);
     -ms-transform: rotate(-3deg);
     -o-transform: rotate(-3deg);
-    z-index: 3;
+    //z-index: 3;
 }
 .overlay {
     position: absolute;
     height: 355.5px;
     width: 900px;
     right: -10px;
-    top: 240px;
+    top: 290px;
     z-index: 2;
 }
 .pano {
@@ -244,7 +244,7 @@ highs {
     height: 355.5px;
     width: 900px;
     right: -10px;
-    top: 240px;
+    top: 290px;
 }
 .svg-clip {
     position: absolute;
@@ -267,29 +267,29 @@ highs {
 
 //=> HOME VIEW PINS
 .hA {
-    top: 15px;
-    left: 110px;
+    top: 3%;
+    left: 10%;
 }
 
 .hB {
     top: 520px;
-    left: 330px;
+    left: 24%;
 }
 
 .hC {
-    top: 20px;
-    right: 360px;
+    top: 4%;
+    right: 25%;
 }
 
 //=> STATE VIEW PINS
 .sA {
     top: 4%;
-    left: 22%;
+    left: 20%;
 }
 
 .sB {
     top: 7%;
-    right: 27%;
+    right: 24%;
 }
 .sC {
     top: 345px;

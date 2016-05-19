@@ -6,9 +6,8 @@ module.exports = (function() {
     appControllers.controller('HomeController', ['$scope', 'DestService', function ($scope, DestService) {
         // Code to Test View / Router
         //console.log('Home View Working');
-        
-        // Code to Test Connection to Factory
-        //console.log(DestService.silento());
+
+        console.log(DestService.silento());
         
         // Code to Set Display with an Initial Value
         $scope.display = 'Select a State';
@@ -27,8 +26,7 @@ module.exports = (function() {
         // Code to test View / Router
         //console.log('State View Working');
         
-        // Code to Test Connection to Factory
-        //console.log(DestService.silento());
+        console.log(DestService.silento());
         
         // Code to Set Display with an Initial Value
         $scope.display = 'Select a City';
@@ -47,7 +45,6 @@ module.exports = (function() {
         // Get Images from API for Select State
         $scope.images = DestService.getImages();
         console.log($scope.images);
-        
     }]); //<= END OF STATE VIEW CONTROLLER
     
     
@@ -56,9 +53,6 @@ module.exports = (function() {
     appControllers.controller('CitiesController', ['$scope', '$routeParams', 'DestService', function ($scope, $routeParams, DestService) {
         // Code to test View / Router
         //console.log('City View Working');
-        
-        // Code to Test Connection to Factory
-        //console.log(DestService.silento());
         
         // Code to Get Display Value from Factory - Cursor Hover
         $scope.display = DestService.returnDisplay();

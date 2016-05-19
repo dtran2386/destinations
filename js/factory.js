@@ -4,10 +4,7 @@ module.exports = (function() {
     
     /////// => BEGIN ANGULAR APP FACTORY
     appFactory.factory('DestService', function($http) {
-        //APIs -- IMAGES MOVED FOR USE AS NAVIGATIONAL CALL
-        var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=Miami,%20FL&appid=1f2671239fb2a0b6556a93f5873da5b1';
-        
-        // LOCAL STORE VARS
+        // FACRTORY SCOPE VARS
         let weather = [];
         let images = [];
         let display = '';
@@ -16,26 +13,7 @@ module.exports = (function() {
         let weatherHistory = [];
         let events = [];
 
-        
-    /////// => BEGIN WEATHER AJAX PROMISE
-        $http({
-            method: 'GET',
-            url: weatherURL,
-            }).then(function (response) {
-/* -------------------------------------------
-    Hold for Dylan            
-            response.data.main.ftemp = Math.round(response.data.main.temp * (9/5) - 459.67);
-            console.log(response.data);
-            if (response.data.weather[0].description === "clear sky") {
-                response.data.icon = "images/noun_446966_cc.png";
-            } else if (response.data.weather[0].description === 'scattered clouds') {
-                response.data.icon = 'images/noun_21526_cc.png';
-            }
-------------------------------------------- */
-            weather.push(response.data);
-        }); //<= END OF IMG PROMISE CHAIN
-        
-        
+
     /////// => BEGIN RETURN FOR FACTORY FUNCTIONS / CLOSURES
         return {
             
@@ -69,8 +47,15 @@ module.exports = (function() {
             
             // Function to return weather array contents to controller.
             getWeather: function() {
+                $http({
+                    method: 'GET', 
+                    url: 'http://api.openweathermap.org/data/2.5/weather?q=' + xURL +'&appid=1f2671239fb2a0b6556a93f5873da5b1'
+                }).then(function (response) {
+                    weather.push(response.data);
+                }); //<= END OF IMG PROMISE CHAIN
                 return weather;
             }, //<= END OF WEATHER RETURN
+            
             
             // Function to return build image array with contextual "xURL" splice to controller.
             getImages: function() {
@@ -113,7 +98,7 @@ module.exports = (function() {
             getWeatherHistory: function() {
                  return $http({
                      method: 'GET',
-                     url: 'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=efa548e958834d0daf6173645160505&q=Denver&format=json&num_of_days=7',
+                     url: 'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=efa548e958834d0daf6173645160505&q='+ xURL +'&format=json&num_of_days=7'
                  }).then(function (response) {
                      weatherHistory.push(response.data.data);
                      console.log(response.data);
@@ -122,9 +107,13 @@ module.exports = (function() {
                  }); 
             }, //<= END GET HISTORICAL WEATHER
             
-            /// TEST Function for Calling in Controller to verify Link-up
+            /// Clear API Arrays
             silento: function() {
-                return 'Watch me WHIP! now watch me NAE NAE!';
+                weather = [];
+                images = [];
+                weatherHistory = [];
+                events = [];
+                return 'API Arrays Cleared';
             } //<= END SILENTO TEST
             
         }; //<= END OF FACTORY CLOSURES
