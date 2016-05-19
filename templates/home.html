@@ -1,12 +1,23 @@
-<div class="homeview">
-    <div class="polaroid">
-        <div class="frame">
-            <div svg-world></div>
+<img src="../resource/pin.png" class="pin hA">
+<img src="../resource/pin.png" class="pin hB">
+<img src="../resource/pin.png" class="pin hC">
+
+<div class="content">
+    <div class="leftFrame">
+        <div class="scrap">
+            <img src="../resource/slate.png" class="slate"/>
+            <h1 class="homeTitle textFloat">When Should I Visit?</h1>
+            <h3 class="homeBy textFloat">A Project by:  Dylan Tran and<br> Andrew Caldwell</h3>
+            <p class="homeText  textFloat">Use the Polaroid Pictures to explore destinations across the United States.<br> Give it a Click!!!</p>
+        </div>    
+    </div>
+    
+    <div class="rightFrame">
+        <div class="polaroid">
+            <div class="mapFrame" svg-world></div>
+            <h2 class="display"> {{ display }} </h2>
         </div>
     </div>
-    <h1 class="display">{{ display }}</h1>
-    
-    <div class="pin"></div>
-    
-    <img class="clip-ocean" src="../resource/water.jpg">
 </div>
+
+

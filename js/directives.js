@@ -27,7 +27,11 @@ module.exports = (function() {
     appDirectives.directive('svgState', ['$compile', '$routeParams', function ($compile, $routeParams) {
         return {
             restrict: 'A',
-            templateUrl: 'resource/'+ $routeParams.stateId +'.svg',
+            templateUrl: function () {
+                console.log('loading state svg: ' + $routeParams.stateId);
+                
+                return 'resource/' + $routeParams.stateId + '.svg';
+            },
             link: function (scope, element) {
                 let citiesArr = element[0].querySelectorAll('.city');
                 angular.forEach(citiesArr, function(city) {

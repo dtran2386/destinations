@@ -1,14 +1,36 @@
-<div class="stateview">
-    <div class="polaroid">
-        <div class="frame" svg-state></div>
+<img src="../resource/pin.png" class="pin sA">
+<img src="../resource/pin.png" class="pin sB">
+<img src="../resource/pin.png" class="pin sC">
+<img src="../resource/pin.png" class="pin sD">
+<img src="../resource/pin.png" class="pin sE">
+<img src="../resource/pin.png" class="pin sF">
+
+<div class="content">
+    <div class="leftFrame">
+        <div class="polaroid">
+            <div class="mapFrame" svg-state></div>
+            <h2 class="display"> {{ display }} </h2>
+        </div>
+    </div>    
+
+    <div class="rightFrame">
+        <div class="scrap">
+            <img src="../resource/paper.png" class="paper"/>
+            
+            <h1 class="stateTitle textFloat">{{ state }}</h1>
+        </div>
+    </div>  
+    
+    <div class="collage">
+        <img src="../resource/polaroid-collage.png" class="overlay">
+        <img ng-src="{{images[1].display_sizes[0].uri}}" class="svg-clip pano">
     </div>
-    <h1 class="display">{{ display }}</h1>
-    
-    <div class="pin"></div>
-    
-    <h2>Simple image slider</h2>
-    <div class="slider" ng-repeat="img in images track by $index">
-        <img ng-src= "{{ img.display_sizes[0].uri }}" />
-        <p> {{ img.title }} </p>        
-    </div> 
 </div>
+
+<svg class="clip-svg">
+    <defs>
+        <clipPath id="clip-polygon" clipPathUnits="objectBoundingBox" >
+            <polygon points=".04 .21, .22 .15, .23 .05, .49 .18, .62 .16, .76 .25, .90 .19, .95 .80, .75 .88, .60 .78, .44 .82, .34 .76, .09 .84"/>
+        </clipPath>
+    </defs>
+</svg>

@@ -1,0 +1,53 @@
+<div id="slides_control">
+    <div>
+        <carousel interval="myInterval">
+            <slide ng-repeat="slide in images" active="slide.active">
+                <img ng-src="{{slide.display_sizes[0].uri}}" class="svg-clip">
+                <div class="carousel-caption">
+                    <h4>Slide {{$index+1}}</h4>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+</div>
+<div class="black">
+    <img src="../resource/polaroid-collage.png" class="collage">
+    <img ng-src="{{images[1].display_sizes[0].uri}}" class="svg-clip" id="solo">
+</div>
+<svg class="clip-svg">
+    <defs>
+        <clipPath id="clip-polygon" clipPathUnits="objectBoundingBox" >
+            <polygon points=".04 .21, .22 .15, .23 .05, .49 .18, .62 .16, .76 .25, .90 .19, .95 .80, .75 .88, .60 .78, .44 .82, .34 .76, .09 .84"/>
+        </clipPath>
+    </defs>
+</svg>
+
+<!--div style="height: 305px">
+    <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+        <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+            
+            <img ng-src="{{slide.image}}" style="margin:auto;">
+            
+            <div class="carousel-caption">
+                
+                <h4>Slide {{slide.id}}</h4>
+                <p>{{slide.text}}</p>
+            </div>
+        </uib-slide>
+    </uib-carousel>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+        <button type="button" class="btn btn-info" ng-click="randomize()">Randomize slides</button>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="noWrapSlides">Disable Slide Looping
+            </label>
+        </div>
+    </div>
+    <div class="col-md-6">Interval, in milliseconds: 
+        <input type="number" class="form-control" ng-model="myInterval">
+        <br />Enter a negative number or 0 to stop the interval.
+    </div>
+</div-->

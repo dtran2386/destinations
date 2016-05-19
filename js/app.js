@@ -8,6 +8,8 @@ require('./directives');
 ////// => BEGIN ANGUALR APP
 var app = angular.module('Destinations',[
     'ngRoute',
+    //'ngAnimate',
+    'ui.bootstrap',
     'DestinationsAppFactory',
     'DestinationsAppControllers',
     'DestinationsAppFilters',
@@ -22,6 +24,10 @@ app.config(['$routeProvider', function ($routeProvider) {
          controller: 'HomeController',
          templateUrl: 'templates/home.html'
       })
+       .when('/TEST', {
+       controller: 'TestController',
+       templateUrl: 'templates/test.html'
+    })
       .when('/:stateId', {
          controller: 'StatesController',
          templateUrl: 'templates/states.html'
