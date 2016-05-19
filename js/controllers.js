@@ -38,13 +38,15 @@ module.exports = (function() {
         };
         // console.log($scope.display);
         
+        $scope.state = DestService.returnState();
+        
         // Code to Set Specific URL extension for API Calls
         DestService.prepImageURL($routeParams.stateId);
         // console.log($routeParams.stateId);
         
         // Get Images from API for Select State
         $scope.images = DestService.getImages();
-        //console.log($scope.images);
+        console.log($scope.images);
         
     }]); //<= END OF STATE VIEW CONTROLLER
     
@@ -68,14 +70,14 @@ module.exports = (function() {
         
         // Code to Get Weather Array from Factory
         $scope.images = DestService.getImages();
-        // console.log($scope.images);
+        //console.log($scope.images);
         
         // Code to Get Weather Array from Factory
         $scope.weather = DestService.getWeather();
         // console.log($scope.weather);
         
         DestService.getWeatherHistory().then(function (history) {
- //            console.log(history.ClimateAverages[0].month);
+            // console.log(history.ClimateAverages[0].month);
              var maxTemp = [];
              var minTemp = [];
              for (var i = 0; i < history.ClimateAverages[0].month.length; i++) {
@@ -120,5 +122,20 @@ module.exports = (function() {
         $scope.events = DestService.getEvents();
 
     }]); //<= END OF CITY VIEW CONTROLLER
-
+    
+    appControllers.controller('TestController', ['$scope', 'DestService', function ($scope, DestService) {
+        $scope.images = DestService.getImages();
+        console.log($scope.images);
+        $scope.myInterval = 4000;
+        $scope.slides = [
+            { image: 'http://lorempixel.com/400/200/'
+            },{
+                image: 'http://lorempixel.com/400/200/food'
+            },{
+                image: 'http://lorempixel.com/400/200/sports'
+            },{
+                image: 'http://lorempixel.com/400/200/people'
+            }];
+    }]);
+    
 }()); //<= END OF MODULE - SET OFF IFFE

@@ -15,6 +15,7 @@ module.exports = (function() {
         let xURL = '';
         let weatherHistory = [];
         let events = [];
+
         
     /////// => BEGIN WEATHER AJAX PROMISE
         $http({
@@ -75,7 +76,7 @@ module.exports = (function() {
             getImages: function() {
                 $http({
                 method: 'GET',
-                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase='+ xURL,
+                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase=' + xURL,
                 headers: {
                     'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
                     }
@@ -92,6 +93,11 @@ module.exports = (function() {
                 console.log(state);
             }, //<= END OF STATE SET
             
+            // Function to return current State var - works with setState
+            returnState: function() {
+                return state;  
+            }, //<= END OF STATE RETURN
+            
             // Function to set current display var - works with returnDisplay
             setDisplay: function (input) {
                 display = input;
@@ -102,18 +108,19 @@ module.exports = (function() {
                 return display;
             }, //<= END OF DISPLAY RETURN
         
-            getWeatherHistory: function () {
+            getWeatherHistory: function() {
                  return $http({
                      method: 'GET',
                      url: 'http://api.worldweatheronline.com/premium/v1/weather.ashx?key=efa548e958834d0daf6173645160505&q=Denver&format=json&num_of_days=7',
                  }).then(function (response) {
-                     weatherHistory.push(response.data.data)
+                     weatherHistory.push(response.data.data);
                      console.log(response.data);
                      
                      return response.data.data;
                  }); //<= END OF HISTORICAL WEATHER PROMISE CHAIN
  //                return weatherHistory;
             },
+            
             
             /// TEST Function for Calling in Controller to verify Link-up
             silento: function() {
