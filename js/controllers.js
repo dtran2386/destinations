@@ -38,6 +38,8 @@ module.exports = (function() {
         };
         // console.log($scope.display);
         
+        $scope.state = DestService.returnState();
+        
         // Code to Set Specific URL extension for API Calls
         DestService.prepImageURL($routeParams.stateId);
         // console.log($routeParams.stateId);

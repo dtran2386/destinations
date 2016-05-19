@@ -1,14 +1,32 @@
-<div class="polaroid">
-    <div class="frame" svg-state></div>
-</div>
-<h1 class="display">{{ display }}</h1>
-<img src="../resource/paper.png" class="paper">    
-<div class="pin"></div>
+<img src="../resource/pin.png" class="pin sA">
+<img src="../resource/pin.png" class="pin sB">
+<img src="../resource/pin.png" class="pin sC">
+<img src="../resource/pin.png" class="pin sD">
+<img src="../resource/pin.png" class="pin sE">
+<img src="../resource/pin.png" class="pin sF">
 
-<div class="black">
-    <img src="../resource/polaroid-collage.png" class="collage">
-    <img ng-src="{{images[1].display_sizes[0].uri}}" class="svg-clip" id="solo">
+<div class="content">
+    <div class="leftFrame">
+        <div class="polaroid">
+            <div class="mapFrame" svg-state></div>
+            <h2 class="display"> {{ display }} </h2>
+        </div>
+    </div>    
+
+    <div class="rightFrame">
+        <div class="scrap">
+            <img src="../resource/paper.png" class="paper"/>
+            
+            <h1 class="stateTitle textFloat">{{ state }}</h1>
+        </div>
+    </div>  
+    
+    <div class="collage">
+        <img src="../resource/polaroid-collage.png" class="overlay">
+        <img ng-src="{{images[1].display_sizes[0].uri}}" class="svg-clip pano">
+    </div>
 </div>
+
 <svg class="clip-svg">
     <defs>
         <clipPath id="clip-polygon" clipPathUnits="objectBoundingBox" >
@@ -16,41 +34,3 @@
         </clipPath>
     </defs>
 </svg>
-
-<!-- BOOTSTRAP CAROUSEL-->
-<!--div class="container carousel-fade"><br-->
-    
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!--ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol-->
-        
-        <!--div class="carousel-inner" role="listbox">
-            <div class="item" ng-class="{active:!$index}" ng-repeat="img in images">
-                <img ng-src= "{{ img.display_sizes[0].uri }}" class="svg-clip"/>
-            </div>
-            <!--a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a-->
-            <!--a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a-->
-        <!--/div>
-        <svg class="clip-svg" style="stroke:blue;stroke-width:2;">
-            <defs>
-                <clipPath id="clip-polygon" clipPathUnits="objectBoundingBox" >
-                    <polygon points=".09 .76, .055 .23, .285 .16, .32 .68" />
-                    <polygon points=".235 .126, .24 .079, .468 .195, .418 .716, .342 .677, .304 .105"/>
-                    <polygon points=".434 .755, .493 .202, .597 .178, .626 .711"/>
-                    <polygon points=".65 .766, .618 .189, .796 .3, .732 .817"/>
-                    <polygon points=".754 .813, .825 .27, .79 .252, .89 .216, .936 .74"/>
-                </clipPath>
-            </defs>
-        </svg>
-    </div>
-</div-->

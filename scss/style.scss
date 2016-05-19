@@ -1,83 +1,253 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 
+@import url(https://fonts.googleapis.com/css?family=Londrina+Sketch);
+
+@import url(https://fonts.googleapis.com/css?family=Reenie+Beanie);
+
 body {
-    display: block;
-    //font-family: 'Open Sans', sans-serif;
     background-image: url('../resource/cork.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    //margin: auto;
-    padding-bottom: 50px;
+    padding: 0 0 5% 0;
+    
+    // TEXT CALLS
+    //font-family: 'Open Sans', sans-serif;
+    //font-family: 'Londrina Shadow', cursive;
 }
 
+main {
+    position: relative;
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    //padding: 3% 0% 0% 3%;
+    //border: 2px solid yellow;
+}
 div {
     margin: 0;
     padding: 0;
-
 }
-/// doesn't do currently
-.wrapper1 {
-    margin: auto;
-    border: 3px solid pink;
-    color: blue;
-    width: 550;
-    
+h1 {
+    font-family: 'Londrina Sketch', cursive !important;
+    font-size: 110px !important;
+    color: darkblue !important;
+}
+h2 {
+    font-family: 'Permanent Marker', cursive !important;
+    font-size: 40px !important;
+    color: black; 
+}
+h3 {
+    font-family: 'Reenie Beanie', cursive !important;
+    font-size: 35px !important;
+    color: black;
+}
+p {
+    font-family: 'Reenie Beanie', cursive !important;
+    font-size: 25px !important;
+    color: black;
+}
+a {
+    font-family: 'Permanent Marker', cursive !important;
+    font-size: 18px !important;
+    color: darkgray !important;
+    margin-left: 15px;
 }
 
+a:hover {
+    color: blue !important;
+    text-decoration: none !important;
+}
+// RULES BELOW FOR BASIC CONTENT BLOCKS
+.content {
+    display: flex !important;
+    flex-direction: row;
+}
+
+.leftFrame {
+    width: 50%;
+    //border: 4px solid red;
+}
+.rightFrame {
+    width: 50%;
+    //border: 4px solid blue;
+}
+
+// RULES BELOW FOR POLAROID SVG MAPS
 .polaroid {
-    display: flex;
+    display: block;
     align-items: center;
     background-color: ghostwhite;
     box-shadow: 3px 3px 14px 2px rgba(0,0,0,0.75);
-    height: 550px;
+    height: 620px;
     width: 550px;
+    padding: 5%;
+    margin: 5% 0% 0% 5%;
     //margin: auto;
-    margin-left: 3%;
     //border: 2px solid blue;
 }
-
-.frame {
+.mapFrame {
     background-image: url('../resource/texture.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    border: 1px solid #656565;
     box-shadow: 0px 0px 44px 2px rgba(101,101,101,0.75) inset;
     
-    height: 90%;
-    width: 90%;
-    
-    margin: auto;
-    border: 1px solid #656565;
+    height: 85%;
+    width: 100%;
 }
 
 .display {
-    background-color: ghostwhite;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 40px;
     text-align: center;
-    padding-bottom: 25px;
-    color: black;
-    width: 550px;
-    //margin: auto;
-    margin-top: 0;
-    margin-left: 3%;
-    //border: 2px solid red;
-    box-shadow: 3px 3px 14px 2px rgba(0,0,0,0.75);
+    padding-top: 10px;
+}
+// RULES BELOW FOR RIGHT SIDE CONTENT BLOCK
+
+.scrap {
+    position: relative;
+    
+}
+.slate {
+    position: absolute;
+    width: 700px;
+    height: 620px;
+    left: 0;
+    top: -20px;
+}
+.textFloat {
+    position: relative;
+    z-index: 3;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+}
+.homeTitle {
+    top: 0px;
+    left: 30px;
+}
+.homeBy {
+    top: 20px;
+    left: 40px;
+    width: 60%;
+}
+.homeText {
+    top: 40px;
+    left: 40px;
+    width: 60%;
+}
+.paper {
+    position: absolute;
+    width: 650px;
+    height: 350px;
+    
+    right: 25px;
+    top: 0px;
+    
+}
+.stateTitle {
+    position: relative;
+    text-align: right;
+    z-index: 3;
+    top: 100px;
+    right: 110px;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
 }
 
+
+
+// RULES BELOW FOR CLIP PATH IMAGE
+// APPEARS IN STATE VIEW ONLY
+.collage {
+    background-color: black;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+}
+.overlay {
+    position: absolute;
+    height: 355.5px;
+    width: 900px;
+    right: -10px;
+    top: 240px;
+    z-index: 2;
+}
+.pano {
+    position: absolute;
+    height: 355.5px;
+    width: 900px;
+    right: -10px;
+    top: 240px;
+}
+.svg-clip {
+    position: absolute;
+    -webkit-clip-path: url("#clip-polygon");
+    clip-path: url("#clip-polygon");
+}
+
+
+
+
+// RULES BELOW PIN POSITIONINGS
+// h Pins for HOME VIEW
+// s Pins for STATE VIEW
+// c Pins for CITY VIEW
 .pin {
     position: absolute;
-    background-image: url('../resource/pin.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 50px;   
+    height: 50px;
+    width: 60px;
+    z-index: 10;
 }
-.no1 {
-    top: -545px;
-    margin-left: 25%;
+
+.hA {
+    top: 15px;
+    left: 110px;
+}
+
+.hB {
+    top: 520px;
+    left: 330px;
+}
+
+.hC {
+    top: 20px;
+    right: 360px;
+}
+
+.sA {
+    top: 40px;
+    left: 300px;
+}
+
+.sB {
+    top: 70px;
+    right: 320px;
+}
+.sC {
+    top: 345px;
+    right: 655px;
+}
+.sD {
+    top: 560px;
+    right: 480px;
+}
+.sE {
+    top: 330px;
+    right: 320px;
+}
+.sF {
+    top: 570px;
+    right: 85px;
 }
 
 
-// CSS RULES BELOW FOR SVG MAPS ONLY
+
+
+// RULES BELOW FOR SVG MAPS ONLY
 .ocean {
     fill: #01053E;
     stroke: none;
@@ -145,53 +315,21 @@ div {
     stroke: black;
     stroke-width: .5;
 }
-.Reservoir{}
 
-.River{}
+.Reservoir .Lake {
+    fill: blue;
+    opacity: .7;
+}
+
+.River{
+    stroke: blue;
+    stroke-width: .5;
+}
 //<= END SVG MAP RULES 
 
-.test {
-    //height: 355.5px;
-    //width: 900px;
-}
 
-.svg-clip {
-    -webkit-clip-path: url("#clip-polygon");
-    clip-path: url("#clip-polygon");
-}
 
 //.nav, .pagination, .carousel, .panel-title a { //cursor: pointer; }
-.paper {
-    height: 400px;
-    width: 800px;
-    position: absolute;
-    top: 20px;
-    right: 0px;
-}
-
-
-.black {
-    background-color: black;
-}
-
-.collage {
-    //position: absolute;
-    top: 200;
-    height: 355.5px !important;
-    width: 900px !important;
-    position: absolute;
-    top: 300px;
-    z-index: 2;
-    right: -10px;
-}
-#solo {
-    height: 355.5px;
-    width: 900px;
-    border: 1px solid purple;
-    position: absolute;
-    top: 300px;
-    right: -10px;
-}
 
 //// BOOTSTRAP UI CAROUSEL
 #slides_control > div{
