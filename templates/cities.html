@@ -5,58 +5,51 @@
 <img src="../resource/pin.png" class="pin cE">
 <img src="../resource/pin.png" class="pin cF">
 
-<div id="cities">
-    <h1>Cities</h1>
-    <div>
-        <div ng-repeat="weather in weather">
-            <h2>How's the weather in {{ display }}?</h2>
+<div class="content">    
+    <div class="split50Frame">
+        <div class="halfColumn">
+            <img src="../resource/slate.png" class="cityScrap"/>
+            <canvas id="myChart" class="chart textFloat" width="740" height="200"></canvas>
+            <h3 class="weatherNote highs">Typical Monthly High and Low Temps</h3>
             
-            <p>Current Conditions: {{ weather.weather[0].description | TitleCase }}
-                <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" id="icon"/>
-            </p>
-            
-            <p>Current Temperature: {{ weather.main.temp | fahrenheit }} &#176;F</p>
+            <h2 class="textFloat weatherNote">How's the weather in <br><h1 class="textFloat weatherNote">{{ display }}</h1></h2>
+        </div>
+    
+        <div class="halfColumn">
+            <div ng-repeat="weather in weather">
+                <h3 class="textFloat weatherNote">Current Temperature: {{ weather.main.temp | fahrenheit }} &#176;F</h3>
+                <h3 class="textFloat weatherNote">Current Conditions: {{ weather.weather[0].description | TitleCase }} </h3>
+                <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" class="icon"/>
+                
+            </div>
         </div>
         
+        <div class="halfColumn">
+            <div class="polaroid">
+                <div class="mapFrame">
+                    <div carousel interval="3000">
+                        <div slide ng-repeat="slide in slides" active="slide.active">
+                            <img ng-src="{{slide.display_sizes[0].uri}}" style="margin: auto;" class="car-slides">
+                            <!--div class="carousel-caption">
+                                <p>{{slide.title}}</p>
+                            </div-->
+                        </div> 
+                    </div>        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="split50Frame">
+        <img src="../resource/yellow-pad.jpeg" class="hotelScrap"/>
+        <h1 class="hotelTitle textFloat textSkew">HOTELS</h1>
+        <ul class="list">
+            <li ng-repeat="event in events | limitTo: 7 track by $index"  class="item">
+                <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}" class="textFloat hotelName"><h3 class="hotelName textSkew">{{ event.name }}</h3></a>
+                <p class="textFloat hotelAdd textSkew">{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}</p>
+            </li>
+        </ul>
     </div>
 </div>
 
 
-
-<h2>Average High + Average Lows (Each Month)</h2>
-<canvas id="myChart" width="740" height="200"></canvas>
-
-
-<div ng-repeat="event in events track by $index">
-    <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}"><h3>{{ event.name }}</h3></a>
-    <p>{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}</p>
-</div>
-
-
-<!-- BOOTSTRAP CAROUSEL-->
-<div class="container carousel-fade">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-      <div class="item" ng-class="{active:!$index}" ng-repeat="img in images">
-          <img ng-src= "{{ img.display_sizes[0].uri }}" />
-    </div>
-
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    </div>
-    </div>
-</div>
