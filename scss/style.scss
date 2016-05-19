@@ -4,10 +4,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Reenie+Beanie);
 
-// GENERAL ELEMENT RULES AND REFINEMENTS
+//=> GENERAL ELEMENT RULES AND REFINEMENTS
 // USE OF !important TO OVERRIDE BOOTSTRAP
 body {
-    //background-image: url('../resource/cork.jpg');
+    background-image: url('../resource/cork.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0 0 5% 0;
@@ -17,8 +17,7 @@ main {
     display: flex !important;
     flex-direction: column;
     width: 100%;
-    //padding: 3% 0% 0% 3%;
-    border: 2px solid yellow;
+    //border: 2px solid yellow;
 }
 div {
     margin: 0;
@@ -47,69 +46,44 @@ p {
 a {
     font-family: 'Permanent Marker', cursive !important;
     font-size: 18px !important;
-    color: darkgray !important;
-    margin-left: 15px;
+    color: black !important;
 }
 a:hover {
-    color: blue !important;
+    color: darkblue !important;
     text-decoration: none !important;
+}
+ul {
+    position: absolute;
+    list-style: none;
+    word-wrap: normal;
+    width: 90%;
+    right: 0;
+    top: 15%;
 }
 //<= END GENERAL EL RULES
 
 
-// RULES BELOW FOR TEMPLATE LEVEL STRUCTURE BLOCKS - BLOCK BEHAVIOR AND FLOW
+//=> RULES BELOW FOR TEMPLATE LEVEL STRUCTURE BLOCKS - BLOCK BEHAVIOR AND FLOW
 .content {
     display: flex !important;
     flex-direction: row !important;
     
-    border: 4px solid cyan;
+    //border: 4px solid cyan;
 }
-
-.topFrame {
+.halfColumn {
+    position: relative;
     width: 100%;
-    //height: fixed size TBD
-    border: 4px solid green;
-    position: relative;
+    //border: 4px solid orange;   
 }
-
-
-    //>>>>>>> MERGE DOWN - "SPLIT FRAME"
-.leftFrame {
+.split50Frame {
+    position: relative;
     width: 50%;
-    border: 4px solid red;
-    position: relative;
-}
-.rightFrame {
-    width: 50%;
-    border: 4px solid blue;
-    position: relative;
-}
-    //<<<<<<< MERGE UP
-
-
-.bottomFrame {
-    width: 100%;
-    //height: fixed size TBD
-    border: 4px solid orange;
-    position: relative;
-}
-.setLeft {
-    margin-left: 5%;
-}
-
-.setRight {
-    margin-left: 5%;
+    //border: 4px solid red;    
 }
 //<= END TEMPLATE STRUCTURE RULES
 
 
-// RULES FOR SCRAP PAPER BACKSPLASHES
-/*
-.scrapDiv {
-    position: relative;
-    
-}
-*/
+//=> RULES FOR SCRAP PAPER BACKSPLASHES
 .homeScrap {
     position: absolute;
     width: 700px;
@@ -117,25 +91,35 @@ a:hover {
     left: 0;
     top: -20px;
 }
-
 .paper {
     position: absolute;
     width: 650px;
     height: 350px;
-    
     right: 25px;
     top: 0px;   
 }
-.yellowPad {
+.cityScrap {
     position: absolute;
-    width: 360px;
+    width: 130%;
     height: auto;
+    left: -10%;
+    top: -10%;
+    z-index: 1;
+}
+.hotelScrap {
+    position: absolute;
+    width: 95%;
+    height: auto;
+    top: 2%;
+    right: 3%;
 }
 
-// BEHAVIOR RULES FOR TEXT ELEMENTS
+//=> BEHAVIOR RULES FOR TEXT / CONTENT ELEMENTS
 .textFloat {
     position: relative;
     z-index: 3;
+}
+.textSkew {
     -webkit-transform: rotate(-5deg);
     -moz-transform: rotate(-5deg);
     -ms-transform: rotate(-5deg);
@@ -166,11 +150,48 @@ a:hover {
     -ms-transform: rotate(-10deg);
     -o-transform: rotate(-10deg);
 }
+
+.hotelTitle {
+    text-align: right;
+    right: 30%;
+    top: 30px;
+    //border: 1px solid darkblue;
+}
+.hotelName {
+    text-align: left;
+    margin: 0px;
+}
+.hotelAdd {
+    text-align: left;
+    margin: 0px 0px 15px 0px;
+}
+.chart {
+    width: 98%;
+    top: 5%;
+}
+.weatherNote{
+    left: 5%;
+    margin: 5px;
+    
+}
+.icon {
+    height: 100px;
+    width: auto;
+    left: 65%;
+    top: -10px;
+    position: absolute;
+    z-index: 3;    
+}
+highs {
+    position: absolute;
+    z-index: 3;
+}
 //<= END TEXT EL RULES
 
 
-// RULES SPECIFIC TO POLAROID SVG MAP CONTAINER
+//=> RULES SPECIFIC TO POLAROID SVG MAP CONTAINER
 .polaroid {
+    position: relative;
     display: block;
     align-items: center;
     background-color: ghostwhite;
@@ -179,6 +200,7 @@ a:hover {
     width: 550px;
     padding: 5%;
     margin: 5% 0% 0% 5%;
+    z-index: 2;
     //margin: auto;
     //border: 2px solid blue;
 }
@@ -200,13 +222,14 @@ a:hover {
 //<= END POLAROID RULES
 
 
-// RULES SPECIFIC TO CLIP PATH POLAROID COLLAGE
+//=> RULES SPECIFIC TO CLIP PATH POLAROID COLLAGE
 .collage {
     background-color: black;
     -webkit-transform: rotate(-3deg);
     -moz-transform: rotate(-3deg);
     -ms-transform: rotate(-3deg);
     -o-transform: rotate(-3deg);
+    z-index: 3;
 }
 .overlay {
     position: absolute;
@@ -231,7 +254,7 @@ a:hover {
 //<= END CLIP PATH RULES
 
 
-// RULES GOVERNING PUSH PIN POSITIONINGS
+//=> RULES GOVERNING PUSH PIN POSITIONINGS
 // h Pins for HOME VIEW
 // s Pins for STATE VIEW
 // c Pins for CITY VIEW
@@ -242,7 +265,7 @@ a:hover {
     z-index: 10;
 }
 
-// HOME VIEW PINS
+//=> HOME VIEW PINS
 .hA {
     top: 15px;
     left: 110px;
@@ -258,15 +281,15 @@ a:hover {
     right: 360px;
 }
 
-// STATE VIEW PINS
+//=> STATE VIEW PINS
 .sA {
-    top: 40px;
-    left: 300px;
+    top: 4%;
+    left: 22%;
 }
 
 .sB {
-    top: 70px;
-    right: 320px;
+    top: 7%;
+    right: 27%;
 }
 .sC {
     top: 345px;
@@ -285,9 +308,15 @@ a:hover {
     right: 85px;
 }
 
-// CITIES VIEW PINS
-.cA {}
-.cB {}
+//=> CITIES VIEW PINS
+.cA {
+    top: 7%;
+    left: 88%;
+}
+.cB {
+    top: 3%;
+    left: 58%;
+}
 .cC {}
 .cD {}
 .cE {}
@@ -295,7 +324,7 @@ a:hover {
 //<= END PIN RULES 
 
 
-// RULES SPECIFIC TO SVG MAP RENDERING
+//=> RULES SPECIFIC TO SVG MAP RENDERING
 // NAMING SOMEWHAT LESS CONVENTIONAL
 .ocean {
     fill: #01053E;
@@ -377,72 +406,14 @@ a:hover {
 //<= END SVG MAP RULES 
 
 
-
-//.nav, .pagination, .carousel, .panel-title a { //cursor: pointer; }
-
-//// BOOTSTRAP UI CAROUSEL
-#slides_control > div{
-
-    border: 5px solid red;
-}
-
-#slides_control {
-    
-    border: 5px solid blue;
-}
-
-/*/=> CSS RULES BELOW FOR IMAGE CAROUSEL
+//=> CSS RULES BELOW FOR IMAGE CAROUSEL
 .carousel {
-    height: 355.5px;
-    width: 900px; 
-}
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-    width: 100%;
+    position: relative;
     height: 100%;
-    margin: auto;
+    width: 100%;
 }
-div.item {
-    //height: 600px;
-    border: 5px solid cyan;
-}
-
-.carousel-fade {
-    //height: 300px;
-    border: 5px solid red;
-    .carousel-inner {
-        .item {
-            //height: 300px;
-            transition-property: opacity;
-        }
-
-        .item,
-        .active.left,
-        .active.right {
-            opacity: 0;
-            
-        }
-
-        .active,
-        .next.left,
-        .prev.right {
-            opacity: 1;
-            
-        }
-
-        .next,
-        .prev,
-        .active.left,
-        .active.right {
-            left: 0;
-            transform: translate3d(0, 0, 0);
-            display: none;
-        }
-    }
-
-    .carousel-control {
-        z-index: 2;
-    }
+.car-slides {
+    max-height: 490px;
+    max-width: 490px;
 }
 
-*/

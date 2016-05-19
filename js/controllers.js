@@ -68,8 +68,11 @@ module.exports = (function() {
         DestService.prepImageURL($routeParams.cityId);
         //console.log($routeParams.cityId);
         
-        // Code to Get Weather Array from Factory
-        $scope.images = DestService.getImages();
+        // Code to Get Image Array from Factory and Render Carousel
+        $scope.slides = DestService.getImages();
+        $scope.setActive = function(idx) {
+            $scope.slides[idx].active=true;
+        };
         //console.log($scope.images);
         
         // Code to Get Weather Array from Factory
@@ -78,64 +81,57 @@ module.exports = (function() {
         
         DestService.getWeatherHistory().then(function (history) {
             // console.log(history.ClimateAverages[0].month);
-             var maxTemp = [];
-             var minTemp = [];
-             for (var i = 0; i < history.ClimateAverages[0].month.length; i++) {
-                 maxTemp.push(history.ClimateAverages[0].month[i].absMaxTemp_F);
-                 minTemp.push(history.ClimateAverages[0].month[i].avgMinTemp_F);
-             }// end for loop
-             // render the graph
-             var data = {
-             labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-             datasets: [
-               {
-                 label: "Max Temperatures",
-                 fillColor: "rgba(200,0,0,0.2)",
-                 strokeColor: "rgba(200,0,0,1)",
-                 pointColor: "rgba(200,0,0,1)",
-                 pointStrokeColor: "#fff",
-                 pointHighlightFill: "#fff",
-                 pointHighlightStroke: "rgba(220,220,220,1)",
-                 data: maxTemp,
-               },
-               {
-                 label: "Min Temperatures",
-                 fillColor: "rgba(11,61,113,0.3)",
-                 strokeColor: "rgba(11,61,113,1)",
-                 pointColor: "rgba(11,61,113,1)",
-                 pointStrokeColor: "#fff",
-                 pointHighlightFill: "#fff",
-                 pointHighlightStroke: "rgba(151,187,205,1)",
-                 data: minTemp,
-               },
-             ]
-           };
-         
-         // Get the context of the canvas element we want to select
-         var ctx = document.getElementById("myChart").getContext("2d");
- 
-         // Instantiate a new chart using 'data' (defined below)
-         var myChart = new Chart(ctx).Line(data);
-         });
+            let maxTemp = [];
+            let minTemp = [];
+            for (let i = 0; i < history.ClimateAverages[0].month.length; i++) {
+                maxTemp.push(history.ClimateAverages[0].month[i].absMaxTemp_F);
+                minTemp.push(history.ClimateAverages[0].month[i].avgMinTemp_F);
+            }
+            // render the graph
+            let data = {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [{
+                    label: "Max Temperatures",
+                    fillColor: "rgba(200,0,0,0.2)",
+                    strokeColor: "rgba(200,0,0,1)",
+                    pointColor: "rgba(200,0,0,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: maxTemp,
+                },{
+                    label: "Min Temperatures",
+                    fillColor: "rgba(11,61,113,0.3)",
+                    strokeColor: "rgba(11,61,113,1)",
+                    pointColor: "rgba(11,61,113,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: minTemp,
+                },]
+            };
+            // Get the context of the canvas element we want to select
+            let ctx = document.getElementById("myChart").getContext("2d");
+            
+            //Instantiate a new chart using 'data' (defined below)
+            let myChart = new Chart(ctx).Line(data);
+        });//<= END OF CHART / WEATHER SCOPE
         
         // Code to get Foursquare data
         $scope.events = DestService.getEvents();
+        
+        
 
     }]); //<= END OF CITY VIEW CONTROLLER
     
     appControllers.controller('TestController', ['$scope', 'DestService', function ($scope, DestService) {
-        $scope.images = DestService.getImages();
-        console.log($scope.images);
-        $scope.myInterval = 4000;
-        $scope.slides = [
-            { image: 'http://lorempixel.com/400/200/'
-            },{
-                image: 'http://lorempixel.com/400/200/food'
-            },{
-                image: 'http://lorempixel.com/400/200/sports'
-            },{
-                image: 'http://lorempixel.com/400/200/people'
-            }];
+        $scope.slides = DestService.getImages();
+        console.log($scope.slides);
+        
+        $scope.setActive = function(idx) {
+            $scope.slides[idx].active=true;
+        };
+
     }]);
     
 }()); //<= END OF MODULE - SET OFF IFFE

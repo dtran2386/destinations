@@ -39,7 +39,7 @@ module.exports = (function() {
     /////// => BEGIN RETURN FOR FACTORY FUNCTIONS / CLOSURES
         return {
             
-            // Function to build a more url query for getty image api based on context.
+            // Function to build a more specific url query for getty image api based on context.
             // Some results for specific states were a bit odd w/ this rule.
             prepImageURL: function(input) {
                 if (input === state) {
@@ -57,12 +57,12 @@ module.exports = (function() {
                 url: 'https://api.foursquare.com/v2/venues/search?near=' + xURL + '&query=hotel&v=20150214&m=foursquare&client_secret=TRQU20MD3SYHGBJIVJPWXYPUGFDP0N2HKCVQNH3D2T0BBTXR&client_id=ODHLMSE0VVFCN0425B4KTOUGSSNJRNGDCY3O1SDYTHA1Y0HA&limit=7',
                 }).then(function (response) {
 //                    console.log(response);
-                    for(var i = 0; i < response.data.response.venues.length; i++) {
+                    for(let i = 0; i < response.data.response.venues.length; i++) {
                         events.push(response.data.response.venues[i]);
+                        
                         response.data.response.venues[i].linkname = response.data.response.venues[i].name + ', ' + response.data.response.venues[i].location.city + ', ' + response.data.response.venues[i].location.state;
                     }
                     console.log(events);
-//                    angular.copy(response.data.response, events);
                 });
                 return events;
             }, //<= END OF EVENT RETURN
@@ -76,7 +76,9 @@ module.exports = (function() {
             getImages: function() {
                 $http({
                 method: 'GET',
-                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase=' + xURL,
+                url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase='+ xURL,
+                    
+                //url: 'https://api.gettyimages.com/v3/search/images/creative?fields=detail_set&phrase=kittens',    
                 headers: {
                     'Api-Key': 'y4qp9xe6axaccvr33qhca9fh',
                     }
@@ -117,10 +119,8 @@ module.exports = (function() {
                      console.log(response.data);
                      
                      return response.data.data;
-                 }); //<= END OF HISTORICAL WEATHER PROMISE CHAIN
- //                return weatherHistory;
-            },
-            
+                 }); 
+            }, //<= END GET HISTORICAL WEATHER
             
             /// TEST Function for Calling in Controller to verify Link-up
             silento: function() {
