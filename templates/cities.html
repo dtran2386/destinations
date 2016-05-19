@@ -5,33 +5,31 @@
 <img src="../resource/pin.png" class="pin cE">
 <img src="../resource/pin.png" class="pin cF">
 
-<div id="cities">
-    <h1>Cities</h1>
-    <div>
+<div class="topFrame">
+<!-- Chart for Weather -->
+    <h2>Average High + Average Lows (Each Month)</h2>
+    <canvas id="myChart" width="740" height="200"></canvas>
+<!-- Dunno Where to PUT THIS -->
+</div>
+
+<div id="content">
+    <div class="leftFrame">
         <div ng-repeat="weather in weather">
             <h2>How's the weather in {{ display }}?</h2>
-            
-            <p>Current Conditions: {{ weather.weather[0].description | TitleCase }}
-                <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" id="icon"/>
-            </p>
-            
-            <p>Current Temperature: {{ weather.main.temp | fahrenheit }} &#176;F</p>
+            <h2>Current Conditions: {{ weather.weather[0].description | TitleCase }} </h2>
+            <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" id="icon"/>
+            <h2>Current Temperature: {{ weather.main.temp | fahrenheit }} &#176;F</h2>
         </div>
-        
+    </div>
+    
+    <div class="rightFrame">
+        <img src="../resource/yellow-pad.jpeg" class="yellowPad"/>
+        <div ng-repeat="event in events track by $index">
+            <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}"><h2>{{ event.name }}</h2></a>
+            <h2>{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}</h2>
+        </div>
     </div>
 </div>
-
-
-
-<h2>Average High + Average Lows (Each Month)</h2>
-<canvas id="myChart" width="740" height="200"></canvas>
-
-
-<div ng-repeat="event in events track by $index">
-    <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}"><h3>{{ event.name }}</h3></a>
-    <p>{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}</p>
-</div>
-
 
 <!-- BOOTSTRAP CAROUSEL-->
 <div class="container carousel-fade">
