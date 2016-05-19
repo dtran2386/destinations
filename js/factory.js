@@ -3,7 +3,7 @@ module.exports = (function() {
     var appFactory = angular.module('DestinationsAppFactory', []);
     
     /////// => BEGIN ANGULAR APP FACTORY
-    appFactory.factory('DestService', function($http, $q) {
+    appFactory.factory('DestService', function($http) {
         //APIs -- IMAGES MOVED FOR USE AS NAVIGATIONAL CALL
         var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=Miami,%20FL&appid=1f2671239fb2a0b6556a93f5873da5b1';
         
@@ -14,7 +14,8 @@ module.exports = (function() {
         let state = '';
         let xURL = '';
         let weatherHistory = [];
-        let wiki= {};
+        let events = [];
+
         
     /////// => BEGIN WEATHER AJAX PROMISE
         $http({
@@ -48,6 +49,23 @@ module.exports = (function() {
                 }
                 console.log(xURL);
             }, // <= END PREP IMAGE FUNCTION
+            
+            //<= BEGIN EVENT PROMISE
+            getEvents: function() {
+                $http({
+                method: 'GET',
+                url: 'https://api.foursquare.com/v2/venues/search?near=' + xURL + '&query=hotel&v=20150214&m=foursquare&client_secret=TRQU20MD3SYHGBJIVJPWXYPUGFDP0N2HKCVQNH3D2T0BBTXR&client_id=ODHLMSE0VVFCN0425B4KTOUGSSNJRNGDCY3O1SDYTHA1Y0HA&limit=7',
+                }).then(function (response) {
+//                    console.log(response);
+                    for(var i = 0; i < response.data.response.venues.length; i++) {
+                        events.push(response.data.response.venues[i]);
+                        response.data.response.venues[i].linkname = response.data.response.venues[i].name + ', ' + response.data.response.venues[i].location.city + ', ' + response.data.response.venues[i].location.state;
+                    }
+                    console.log(events);
+//                    angular.copy(response.data.response, events);
+                });
+                return events;
+            }, //<= END OF EVENT RETURN
             
             // Function to return weather array contents to controller.
             getWeather: function() {

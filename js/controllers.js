@@ -117,6 +117,9 @@ module.exports = (function() {
          // Instantiate a new chart using 'data' (defined below)
          var myChart = new Chart(ctx).Line(data);
          });
+        
+        // Code to get Foursquare data
+        $scope.events = DestService.getEvents();
 
     }]); //<= END OF CITY VIEW CONTROLLER
     

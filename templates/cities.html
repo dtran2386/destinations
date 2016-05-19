@@ -16,7 +16,6 @@
             </p>
             
             <p>Current Temperature: {{ weather.main.temp | fahrenheit }} &#176;F</p>
-            
         </div>
         
     </div>
@@ -26,6 +25,12 @@
 
 <h2>Average High + Average Lows (Each Month)</h2>
 <canvas id="myChart" width="740" height="200"></canvas>
+
+
+<div ng-repeat="event in events track by $index">
+    <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}"><h3>{{ event.name }}</h3></a>
+    <p>{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}</p>
+</div>
 
 
 <!-- BOOTSTRAP CAROUSEL-->
