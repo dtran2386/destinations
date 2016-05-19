@@ -8,7 +8,7 @@ require('./directives');
 ////// => BEGIN ANGUALR APP
 var app = angular.module('Destinations',[
     'ngRoute',
-    //'ngAnimate',
+    'ngAnimate',
     'ui.bootstrap',
     'DestinationsAppFactory',
     'DestinationsAppControllers',
@@ -21,25 +21,18 @@ var app = angular.module('Destinations',[
 app.config(['$routeProvider', function ($routeProvider) {
    $routeProvider
       .when('/home', {
-         controller: 'HomeController',
-         templateUrl: 'templates/home.html'
-      })
-       .when('/TEST', {
-       controller: 'TestController',
-       templateUrl: 'templates/test.html'
-    })
-      .when('/:stateId', {
-         controller: 'StatesController',
-         templateUrl: 'templates/states.html'
-      })
-      .when('/:stateId/:cityId', {
-         controller: 'CitiesController',
-         templateUrl: 'templates/cities.html'
-      });
-      //.otherwise({
-      //    redirectTo: '/home'
-      //});
-    console.log('Router Hot');
+       controller: 'HomeController',
+       templateUrl: 'templates/home.html'
+   }).when('/:stateId', {
+       controller: 'StatesController',
+       templateUrl: 'templates/states.html'
+   }).when('/:stateId/:cityId', {
+       controller: 'CitiesController',
+       templateUrl: 'templates/cities.html'
+   }).otherwise({
+       redirectTo: '/home'
+   });
+    //console.log('Router Hot');
 }]); //<= END ANGULAR ROUTER
 
 
