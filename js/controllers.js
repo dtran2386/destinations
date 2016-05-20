@@ -6,9 +6,8 @@ module.exports = (function() {
     appControllers.controller('HomeController', ['$scope', 'DestService', function ($scope, DestService) {
         // Code to Test View / Router
         //console.log('Home View Working');
-        
-        // Code to Test Connection to Factory
-        //console.log(DestService.silento());
+
+        console.log(DestService.silento());
         
         // Code to Set Display with an Initial Value
         $scope.display = 'Select a State';
@@ -27,8 +26,7 @@ module.exports = (function() {
         // Code to test View / Router
         //console.log('State View Working');
         
-        // Code to Test Connection to Factory
-        //console.log(DestService.silento());
+        console.log(DestService.silento());
         
         // Code to Set Display with an Initial Value
         $scope.display = 'Select a City';
@@ -46,8 +44,7 @@ module.exports = (function() {
         
         // Get Images from API for Select State
         $scope.images = DestService.getImages();
-        console.log($scope.images);
-        
+        //console.log($scope.images);
     }]); //<= END OF STATE VIEW CONTROLLER
     
     
@@ -57,12 +54,13 @@ module.exports = (function() {
         // Code to test View / Router
         //console.log('City View Working');
         
-        // Code to Test Connection to Factory
-        //console.log(DestService.silento());
-        
         // Code to Get Display Value from Factory - Cursor Hover
         $scope.display = DestService.returnDisplay();
         // console.log($scope.display);
+        
+        // Code to Get State Value from Factory
+        $scope.state = DestService.returnState();
+        // console.log($scope.state);
         
         // Code to Pass Route Param for Image Prep
         DestService.prepImageURL($routeParams.cityId);
@@ -70,14 +68,14 @@ module.exports = (function() {
         
         // Code to Get Image Array from Factory and Render Carousel
         $scope.slides = DestService.getImages();
-        $scope.setActive = function(idx) {
-            $scope.slides[idx].active=true;
+        $scope.setActive = function(index) {
+            $scope.slides[index].active=true;
         };
         //console.log($scope.images);
         
         // Code to Get Weather Array from Factory
         $scope.weather = DestService.getWeather();
-        // console.log($scope.weather);
+        //console.log($scope.weather);
         
         DestService.getWeatherHistory().then(function (history) {
             // console.log(history.ClimateAverages[0].month);
@@ -89,7 +87,7 @@ module.exports = (function() {
             }
             // render the graph
             let data = {
-                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                 datasets: [{
                     label: "Max Temperatures",
                     fillColor: "rgba(200,0,0,0.2)",

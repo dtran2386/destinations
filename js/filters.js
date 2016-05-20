@@ -2,26 +2,26 @@
 module.exports = (function() {
     var appFilters = angular.module('DestinationsAppFilters', []);
     
+    // Filter to Present Temperatures as Fahrenheit
     appFilters.filter('fahrenheit', function () {
         return function (kelvin) {
             return Math.round(kelvin * (9 /5) - 459.67);
         };
     }); //<= END OF FAHRENHEIT FILTER
     
+    // Filter to Prep Strings as Proper Nouns
     appFilters.filter('TitleCase', function () {
         return function (string) {
-            // lowercase everything
             string = string.toLowerCase();
-            // split each phrase by word
             let words = string.split(' ');
-            // capitalize first letter of each word
+            
+            // Loop and Capitalize First Letter of Words
             for (let i = 0; i < words.length; i++) {
                 // each word...
                 words[i] = words[i].charAt(0).toUpperCase() + words[i].substr(1);
-            } //<= END FOR LOOP
-            // combine all words into a phrase again
+            }
             return words.join(' ');
-        }; //<= END RETURN
+        };
     }); //<= END OF TITLECASE FILTER
     
 }()); //<= END OF MODULE - SET OFF IFFE
