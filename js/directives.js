@@ -28,8 +28,7 @@ module.exports = (function() {
         return {
             restrict: 'A',
             templateUrl: function () {
-                console.log('loading state svg: ' + $routeParams.stateId);
-                
+                //console.log('loading state svg: ' + $routeParams.stateId);
                 return 'resource/' + $routeParams.stateId + '.svg';
             },
             link: function (scope, element) {

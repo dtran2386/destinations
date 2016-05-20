@@ -52,7 +52,7 @@ module.exports = (function() {
                     url: 'http://api.openweathermap.org/data/2.5/weather?q=' + xURL +'&appid=1f2671239fb2a0b6556a93f5873da5b1'
                 }).then(function (response) {
                     weather.push(response.data);
-                }); //<= END OF IMG PROMISE CHAIN
+                });
                 return weather;
             }, //<= END OF WEATHER RETURN
             

@@ -2,7 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Londrina+Sketch);
 
-@import url(https://fonts.googleapis.com/css?family=Reenie+Beanie);
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
 
 //=> GENERAL ELEMENT RULES AND REFINEMENTS
 // USE OF !important TO OVERRIDE BOOTSTRAP
@@ -17,7 +17,6 @@ main {
     display: flex !important;
     flex-direction: column;
     width: 100%;
-    //border: 2px solid yellow;
 }
 div {
     margin: 0;
@@ -29,18 +28,39 @@ h1 {
     color: darkblue !important;
 }
 h2 {
-    font-family: 'Permanent Marker', cursive !important;
-    font-size: 40px !important;
-    color: black; 
+    font-family: 'Londrina Sketch', cursive !important;
+    font-size: 90px !important;
+    color: darkblue !important;
 }
 h3 {
-    font-family: 'Reenie Beanie', cursive !important;
-    font-size: 35px !important;
+    font-family: 'Londrina Sketch', cursive !important;
+    font-size: 50px !important;
+    color: darkblue !important;
+}
+h4 {
+    font-family: 'Permanent Marker', cursive !important;
+    font-size: 40px !important;
+    color: black;
+    border: 0px 0px 1px 0px solid black;
+}
+h5 {
+    font-family: 'Permanent Marker', cursive !important;
+    font-size: 30px !important;
+    color: black; 
+}
+h6 {
+    font-family: 'Shadows Into Light Two', cursive !important;
+    font-size: 28px !important;
+    color: black;
+}
+h7 {
+    font-family: 'Shadows Into Light Two', cursive !important;
+    font-size: 24px !important;
     color: black;
 }
 p {
-    font-family: 'Reenie Beanie', cursive !important;
-    font-size: 25px !important;
+    font-family: 'Shadows Into Light Two', cursive !important;
+    font-size: 20px !important;
     color: black;
 }
 a {
@@ -53,12 +73,8 @@ a:hover {
     text-decoration: none !important;
 }
 ul {
-    position: absolute;
     list-style: none;
     word-wrap: normal;
-    width: 90%;
-    right: 0;
-    top: 15%;
 }
 //<= END GENERAL EL RULES
 
@@ -67,18 +83,19 @@ ul {
 .content {
     display: flex !important;
     flex-direction: row !important;
-    
-    //border: 4px solid cyan;
 }
 .halfColumn {
     position: relative;
     width: 100%;
-    //border: 4px solid orange;   
 }
 .split50Frame {
     position: relative;
-    width: 50%;
-    //border: 4px solid red;    
+    width: 50%; 
+}
+.inline {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 //<= END TEMPLATE STRUCTURE RULES
 
@@ -100,30 +117,42 @@ ul {
 }
 .cityScrap {
     position: absolute;
-    width: 130%;
-    height: auto;
-    left: -10%;
+    width: 1200px;
+    height: 700px;
+    right: 0;
     top: -10%;
     z-index: 1;
 }
-.hotelScrap {
+.yellowScrap {
     position: absolute;
-    width: 95%;
+    width: 94%;
     height: auto;
-    top: 2%;
-    right: 3%;
+    margin-left: 5%;
+    top: 0;
+    z-index: 2;
 }
+.column {
+    margin-left: 20px;
+}
+//<= END BACKSPLASHES
+
 
 //=> BEHAVIOR RULES FOR TEXT / CONTENT ELEMENTS
-.textFloat {
-    position: relative;
-    z-index: 3;
-}
 .textSkew {
     -webkit-transform: rotate(-5deg);
     -moz-transform: rotate(-5deg);
     -ms-transform: rotate(-5deg);
     -o-transform: rotate(-5deg);
+}
+.titleSkew {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+}
+.textFloat {
+    position: relative;
+    z-index: 3;
 }
 .homeTitle {
     top: 0px;
@@ -132,7 +161,7 @@ ul {
 .homeBy {
     top: 20px;
     left: 40px;
-    width: 60%;
+    width: 65%;
 }
 .homeText {
     top: 40px;
@@ -145,48 +174,94 @@ ul {
     z-index: 3;
     top: 100px;
     right: 30px;
-    -webkit-transform: rotate(-10deg);
-    -moz-transform: rotate(-10deg);
-    -ms-transform: rotate(-10deg);
-    -o-transform: rotate(-10deg);
 }
-
-.hotelTitle {
-    text-align: right;
-    right: 30%;
+.stateHelp {
+    position: relative;
+    text-align: center;
+    z-index: 3;
+    top: 105px;
+    right: 180px;
+}
+.eventList {
+    position: absolute;
+    width: 90%;
+    right: 0;
+    top: 260px;
+}
+.eInactive {
+    border-style: solid;
+    border-width: 0px 1px 2px 1px;
+    border-color: black;
+    padding: 8px;
+}
+.eActive {
+    border-style: solid;
+    border-width: 2px 1px 0px 0px;
+    border-color: black;
+    background-color: #f0e184;
+    padding: 8px;
+}
+.placeName {
+    width: 660px;
     top: 30px;
-    //border: 1px solid darkblue;
+    left: 60px;
+    word-wrap: normal;
 }
-.hotelName {
-    text-align: left;
-    margin: 0px;
+.current {
+    background-color: #E4E4E4;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
-.hotelAdd {
-    text-align: left;
-    margin: 0px 0px 15px 0px;
+.weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: baseline;
 }
-.chart {
-    width: 98%;
-    top: 5%;
-}
-.weatherNote{
-    left: 5%;
-    margin: 5px;
+.space {
+    margin-left: 20px;
+    margin-right: 40px;
     
 }
 .icon {
-    height: 100px;
+    height: 80px;
     width: auto;
-    left: 65%;
-    top: -10px;
-    position: absolute;
-    z-index: 3;    
-}
-highs {
-    position: absolute;
-    z-index: 3;
+    margin-right: 20px;
+    margin-left: 15px;
+    
 }
 //<= END TEXT EL RULES
+
+
+//=> DOODLES
+.doodle {
+    position: absolute;
+    z-index: 5;
+}
+.arrows {
+    height: 100px;
+    width: auto;
+    right: 450px;
+    top: 60px;
+}
+.bulb {
+    height: 160px;
+    width: auto;
+    right: 70px;
+    top: 170px;
+    -webkit-transform: rotate(-50deg);
+    -moz-transform: rotate(-50deg);
+    -ms-transform: rotate(-50deg);
+    -o-transform: rotate(-50deg);
+}
+.lilEarth {
+    height: 110px;
+    width: auto;
+    right: 30px;
+    top: 220px;
+}
+//<=END DOODLES
 
 
 //=> RULES SPECIFIC TO POLAROID SVG MAP CONTAINER
@@ -201,8 +276,6 @@ highs {
     padding: 5%;
     margin: 5% 0% 0% 5%;
     z-index: 2;
-    //margin: auto;
-    //border: 2px solid blue;
 }
 .mapFrame {
     background-image: url('../resource/texture.jpg');
@@ -210,14 +283,18 @@ highs {
     background-size: cover;
     border: 1px solid #656565;
     box-shadow: 0px 0px 44px 2px rgba(101,101,101,0.75) inset;
-    
     height: 85%;
     width: 100%;
 }
-
 .display {
     text-align: center;
     padding-top: 10px;
+}
+.homeP {
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    -o-transform: rotate(2deg);
 }
 //<= END POLAROID RULES
 
@@ -229,7 +306,6 @@ highs {
     -moz-transform: rotate(-3deg);
     -ms-transform: rotate(-3deg);
     -o-transform: rotate(-3deg);
-    //z-index: 3;
 }
 .overlay {
     position: absolute;
@@ -288,8 +364,8 @@ highs {
 }
 
 .sB {
-    top: 7%;
-    right: 24%;
+    top: 5%;
+    right: 27%;
 }
 .sC {
     top: 345px;
@@ -310,17 +386,24 @@ highs {
 
 //=> CITIES VIEW PINS
 .cA {
-    top: 7%;
-    left: 88%;
+    top: 2%;
+    left: 7%;
 }
 .cB {
-    top: 3%;
-    left: 58%;
+    top: 1%;
+    right: 41%;
 }
-.cC {}
-.cD {}
-.cE {}
-.cF {}
+.cC {
+    top: 35%;
+    right: 28%;
+}
+.cD {
+    top: 46%;
+    right: 1%;
+}
+.cE {top: 88%;
+    left: 36%;
+}
 //<= END PIN RULES 
 
 
@@ -340,21 +423,18 @@ highs {
     stroke-dasharray: 5, 5;
     stroke-width: 2;
 }
-
 .states:hover {
     cursor: pointer;
     stroke-width: 2;
     stroke: none;
     fill: green;
 }
-
 .state {
     fill: green;
     opacity: .7;
     stroke: #7D8F8D;
     stroke-width: 2;
 }
-
 .city {
     fill: red;
     stroke: black;
@@ -378,12 +458,10 @@ highs {
     stroke: black;
     stroke-width: 2;
 }
-
 .Federal {
     stroke: black;
     stroke-width: 1;
 }
-
 .State {
     stroke: black;
     stroke-width: .5;
@@ -393,12 +471,10 @@ highs {
     stroke: black;
     stroke-width: .5;
 }
-
 .Reservoir .Lake {
     fill: blue;
     opacity: .7;
 }
-
 .River{
     stroke: blue;
     stroke-width: .5;
@@ -406,7 +482,7 @@ highs {
 //<= END SVG MAP RULES 
 
 
-//=> CSS RULES BELOW FOR IMAGE CAROUSEL
+//=> CSS RULES FOR IMAGE CAROUSEL
 .carousel {
     position: relative;
     height: 100%;
@@ -416,4 +492,3 @@ highs {
     max-height: 490px;
     max-width: 490px;
 }
-

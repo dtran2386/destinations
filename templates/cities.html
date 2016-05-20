@@ -1,55 +1,53 @@
-<img src="../resource/pin.png" class="pin cA">
-<img src="../resource/pin.png" class="pin cB">
-<img src="../resource/pin.png" class="pin cC">
-<img src="../resource/pin.png" class="pin cD">
-<img src="../resource/pin.png" class="pin cE">
-<img src="../resource/pin.png" class="pin cF">
+<img src="../resource/pin.png" class="pin cA"/>
+<img src="../resource/pin.png" class="pin cB"/>
+<img src="../resource/pin.png" class="pin cC"/>
+<img src="../resource/pin.png" class="pin cD"/>
+<img src="../resource/pin.png" class="pin cE"/>
 
-<div class="content">    
-    <div class="split50Frame">
-        <div class="halfColumn">
-            <img src="../resource/slate.png" class="cityScrap"/>
-            <canvas id="myChart" class="chart textFloat" width="740" height="200"></canvas>
-            <h3 class="weatherNote highs">Typical Monthly High and Low Temps</h3>
-            
-            <h2 class="textFloat weatherNote">How's the weather in <br><h1 class="textFloat weatherNote">{{ display }}</h1></h2>
-        </div>
+<div class="content">
+<img src="../resource/slab.png" class="cityScrap"/>    
     
-        <div class="halfColumn">
-            <div ng-repeat="weather in weather">
-                <h3 class="textFloat weatherNote">Current Temperature: {{ weather.main.temp | fahrenheit }} &#176;F</h3>
-                <h3 class="textFloat weatherNote">Current Conditions: {{ weather.weather[0].description | TitleCase }} </h3>
-                <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" class="icon"/>
-                
+    <div class="split50Frame LEFT">  
+    <h2 class="placeName textFloat textSkew">{{ display }}, {{ state }}</h2>
+        <img src="../resource/yellow-pad.jpeg" class="yellowScrap"/>    
+        <ul class="eventList"> 
+            <div class="inline">
+                <p class="textFloat eInactive"> Dining</p>
+                <p class="textFloat eInactive"> Bars</p>
+                <h5 class="textFloat eActive"> Hotels</h5>
+                <p class="textFloat eInactive"> Concerts</p>
+                <p class="textFloat eInactive"> Sports</p>
+                <p class="textFloat eInactive"> Festivals</p>
+                <p class="textFloat eInactive"> Outdoors</p>
+            </div>    
+            <li ng-repeat="event in events | limitTo: 7 track by $index"  class="item textFloat">
+                <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}"><h6 class="textFloat hotelName">{{ event.name }}</h6></a>
+                <p class="textFloat hotelAdd">{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}</p>
+            </li>
+        </ul>
+    </div>    
+    <div class="split50Frame">        
+        <div class="column textFloat">
+            <div class="inline weather">
+                <h3 class="textFloat">Local Weather: </h3>
+                <h6 class="textFloat space"> Seasonal Averages</h6>   
             </div>
-        </div>
-        
-        <div class="halfColumn">
-            <div class="polaroid">
+            <canvas id="myChart" class="textFloat" height="150px" width="690px"></canvas>
+            <div ng-repeat="weather in weather">
+                <div class="current">
+                    <img ng-src="http://openweathermap.org/img/w/{{ weather.weather[0].icon }}.png" class="icon"/>
+                    <h7 class="textFloat">The current weather is {{ weather.main.temp | fahrenheit }} &#176;F and current conditions call for: {{ weather.weather[0].description | TitleCase }} </h7>
+                </div>
+            </div>
+            <div class="polaroid textSkew">
                 <div class="mapFrame">
                     <div carousel interval="3000">
                         <div slide ng-repeat="slide in slides" active="slide.active">
                             <img ng-src="{{slide.display_sizes[0].uri}}" style="margin: auto;" class="car-slides">
-                            <!--div class="carousel-caption">
-                                <p>{{slide.title}}</p>
-                            </div-->
                         </div> 
                     </div>        
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="split50Frame">
-        <img src="../resource/yellow-pad.jpeg" class="hotelScrap"/>
-        <h1 class="hotelTitle textFloat textSkew">HOTELS</h1>
-        <ul class="list">
-            <li ng-repeat="event in events | limitTo: 7 track by $index"  class="item">
-                <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q={{ event.linkname }}" class="textFloat hotelName"><h3 class="hotelName textSkew">{{ event.name }}</h3></a>
-                <p class="textFloat hotelAdd textSkew">{{ event.location.address }}, {{ event.location.city }}, {{ event.location.state }}</p>
-            </li>
-        </ul>
-    </div>
 </div>
-
-
